@@ -4,6 +4,8 @@
  */
 package vista;
 
+import java.awt.Color;
+
 /**
  *
  * @author denis
@@ -15,6 +17,7 @@ public class PrivateOwner extends javax.swing.JFrame {
      */
     public PrivateOwner() {
         initComponents();
+        this.getContentPane().setBackground(Color.PINK);
     }
 
     /**
