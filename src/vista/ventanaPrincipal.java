@@ -45,20 +45,20 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 36)); // NOI18N
         jLabel1.setText("Bienvenido a");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(10, 11, 380, 42);
+        jLabel1.setBounds(10, 10, 380, 42);
 
-        jButton1.setText("Client");
+        jButton1.setText("Cliente");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(120, 150, 59, 23);
+        jButton1.setBounds(100, 150, 80, 23);
 
-        jButton2.setText("Branch");
+        jButton2.setText("Sucursal");
         getContentPane().add(jButton2);
-        jButton2.setBounds(210, 150, 65, 23);
+        jButton2.setBounds(200, 150, 90, 23);
 
         jButton3.setText("Private Owner");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -67,20 +67,20 @@ public class ventanaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(300, 150, 101, 23);
+        jButton3.setBounds(310, 150, 120, 23);
 
-        jButton4.setText("Graphics");
+        jButton4.setText("Gráfica");
         getContentPane().add(jButton4);
-        jButton4.setBounds(430, 150, 73, 23);
+        jButton4.setBounds(450, 150, 90, 23);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 36)); // NOI18N
         jLabel2.setText("Dreamhome");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(250, 10, 380, 50);
+        jLabel2.setBounds(250, 10, 380, 40);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo3.jpg"))); // NOI18N
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(0, -20, 550, 360);
+        jLabel3.setBounds(0, -40, 550, 380);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
