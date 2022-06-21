@@ -5,6 +5,11 @@
 package vista;
 
 import java.awt.Color;
+import java.sql.Statement;
+import conexionBD.ConexionBD;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -75,6 +80,11 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jButton3.setBounds(310, 150, 120, 23);
 
         jButton4.setText("Gráfica");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton4);
         jButton4.setBounds(450, 150, 90, 23);
 
@@ -107,6 +117,10 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         this.setVisible(false);
         s.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

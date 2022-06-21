@@ -4,10 +4,21 @@
  */
 package controlador;
 
+import conexionBD.ConexionBD;
+import modelo.Branch;
 /**
  *
  * @author denis
  */
 public class BranchDAO {
+    ConexionBD conexion;
     
+    public BranchDAO(){
+        conexion = new ConexionBD();
+    }
+    
+    public boolean insertarBranch(Branch b){
+        boolean resultado = false;
+        return resultado;
+    }
 }
