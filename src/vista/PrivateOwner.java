@@ -5,6 +5,11 @@
 package vista;
 
 import java.awt.Color;
+import java.awt.Component;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTextField;
 
 /**
  *
@@ -18,6 +23,7 @@ public class PrivateOwner extends javax.swing.JFrame {
     public PrivateOwner() {
         initComponents();
         this.getContentPane().setBackground(Color.PINK);
+        actualizarTabla();
     }
 
     /**
@@ -170,7 +176,7 @@ public class PrivateOwner extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(comboFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -265,7 +271,32 @@ public class PrivateOwner extends javax.swing.JFrame {
                 comboFiltro.setEnabled(true);
             }
     }//GEN-LAST:event_comboOpActionPerformed
-
+    public void reestablecer(Component...componentes){
+        for(Component Component : componentes){
+            if(Component instanceof JTextField){
+                ((JTextField)Component).setText("");
+            }
+        }
+    }
+    
+    public void actualizarTabla(){
+        String controlador = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+        String url = "jdbc:sqlserver://localhost:1433;databaseName=dreamhome;"
+                    + "user=sa;"
+                    + "password=hanji123;"
+                    + "encrypt=true;trustServerCertificate=true;";
+        String consulta = "SELECT * FROM privateOwner";
+        
+        ResultSetTableModel modeloDatos = null;
+        try{
+            modeloDatos = new ResultSetTableModel(controlador, url, consulta);
+        }catch(SQLException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(ClassNotFoundException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tablaPO.setModel(modeloDatos);
+    }
     /**
      * @param args the command line arguments
      */

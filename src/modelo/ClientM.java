@@ -8,19 +8,19 @@ package modelo;
  *
  * @author denis
  */
-public class Client {
-    private char clientNo;
+public class ClientM {
+    private String clientNo;
     private String fName;
     private String lName;
-    private char telNo;
+    private String telNo;
     private String prefType;
     private int maxRent;
     private String email;
 
-    public Client() {
-    }
+    public ClientM(){}
 
-    public Client(char clientNo, String fName, String lName, char telNo, String prefType, int maxRent, String email) {
+    public ClientM(String clientNo, String fName, String lName, String telNo, String prefType, int maxRent, String email) {
+        super();
         this.clientNo = clientNo;
         this.fName = fName;
         this.lName = lName;
@@ -30,7 +30,7 @@ public class Client {
         this.email = email;
     }
 
-    public char getClientNo() {
+    public String getClientNo() {
         return clientNo;
     }
 
@@ -42,7 +42,7 @@ public class Client {
         return lName;
     }
 
-    public char getTelNo() {
+    public String getTelNo() {
         return telNo;
     }
 
@@ -58,7 +58,7 @@ public class Client {
         return email;
     }
 
-    public void setClientNo(char clientNo) {
+    public void setClientNo(String clientNo) {
         this.clientNo = clientNo;
     }
 
@@ -70,7 +70,7 @@ public class Client {
         this.lName = lName;
     }
 
-    public void setTelNo(char telNo) {
+    public void setTelNo(String telNo) {
         this.telNo = telNo;
     }
 

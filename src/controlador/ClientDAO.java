@@ -4,7 +4,7 @@
  */
 package controlador;
 import conexionBD.ConexionBD;
-import modelo.Client;
+import modelo.ClientM;
 /**
  *
  * @author denis
@@ -16,7 +16,7 @@ public class ClientDAO {
         conexion = new ConexionBD();
     }
     
-    public boolean insertarClient(Client c){
+    public boolean insertarClient(ClientM c){
         boolean resultado = false;
         String sql = "INSERT INTO client VALUES('" + c.getClientNo() +
                 "', '" + c.getfName() + "','" + c.getlName() +
@@ -33,7 +33,7 @@ public class ClientDAO {
         return resultado;
     }
     
-    public boolean modificarClient(Client c){
+    public boolean modificarClient(ClientM c){
         boolean resultado = false;
         String sql = "UPDATE client SET fName = '" + c.getfName() +
                 "', lName = '" + c.getlName() + "', telNo = '" + c.getTelNo() + 
