@@ -8,16 +8,16 @@ package modelo;
  *
  * @author denis
  */
-public class Branch {
+public class BranchM {
     private char branchNo;
     private String street;
     private String city;
     private String postcode;
 
-    public Branch() {
+    public BranchM() {
     }
 
-    public Branch(char branchNo, String street, String city, String postcode) {
+    public BranchM(char branchNo, String street, String city, String postcode) {
         this.branchNo = branchNo;
         this.street = street;
         this.city = city;

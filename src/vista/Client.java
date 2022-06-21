@@ -107,6 +107,11 @@ public class Client extends javax.swing.JFrame {
         btnCons.setEnabled(false);
 
         btnLimp.setText("Limpiar Campos");
+        btnLimp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpActionPerformed(evt);
+            }
+        });
 
         btnReg.setText("Regresar");
         btnReg.addActionListener(new java.awt.event.ActionListener() {
@@ -323,6 +328,10 @@ public class Client extends javax.swing.JFrame {
                 comboFiltro.setEnabled(true);
             }
     }//GEN-LAST:event_comboOpActionPerformed
+
+    private void btnLimpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpActionPerformed
+        reestablecer(cajaClientNo, cajaEmail, cajaMaxR, cajaPref, cajaTelNo, cajafName, cajalName);
+    }//GEN-LAST:event_btnLimpActionPerformed
     public void reestablecer(Component...componentes){
         for(Component Component : componentes){
             if(Component instanceof JTextField){

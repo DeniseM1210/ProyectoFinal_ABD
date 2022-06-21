@@ -8,19 +8,19 @@ package modelo;
  *
  * @author denis
  */
-public class PrivateOwner {
-    private char ownerNo;
+public class PrivateOwnerM {
+    private String ownerNo;
     private String fName;
     private String lName;
     private String address;
-    private char telNo;
+    private String telNo;
     private String email;
     private String password;
 
-    public PrivateOwner() {
+    public PrivateOwnerM() {
     }
 
-    public PrivateOwner(char ownerNo, String fName, String lName, String address, char telNo, String email, String password) {
+    public PrivateOwnerM(String ownerNo, String fName, String lName, String address, String telNo, String email, String password) {
         this.ownerNo = ownerNo;
         this.fName = fName;
         this.lName = lName;
@@ -30,7 +30,7 @@ public class PrivateOwner {
         this.password = password;
     }
 
-    public char getOwnerNo() {
+    public String getOwnerNo() {
         return ownerNo;
     }
 
@@ -46,7 +46,7 @@ public class PrivateOwner {
         return address;
     }
 
-    public char getTelNo() {
+    public String getTelNo() {
         return telNo;
     }
 
@@ -58,7 +58,7 @@ public class PrivateOwner {
         return password;
     }
 
-    public void setOwnerNo(char ownerNo) {
+    public void setOwnerNo(String ownerNo) {
         this.ownerNo = ownerNo;
     }
 
@@ -74,7 +74,7 @@ public class PrivateOwner {
         this.address = address;
     }
 
-    public void setTelNo(char telNo) {
+    public void setTelNo(String telNo) {
         this.telNo = telNo;
     }
 

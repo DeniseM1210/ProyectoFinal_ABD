@@ -5,7 +5,7 @@
 package controlador;
 
 import conexionBD.ConexionBD;
-import modelo.PrivateOwner;
+import modelo.PrivateOwnerM;
 
 /**
  *
@@ -18,7 +18,7 @@ public class PrivateOwnerDAO {
         conexion = new ConexionBD();
     }
     
-    public boolean insertarPrivateOwner(PrivateOwner po){
+    public boolean insertarPrivateOwner(PrivateOwnerM po){
         boolean resultado = false;
         String sql = "INSERT INTO privateOwner VALUES('" + po.getOwnerNo() +
                 "','" + po.getfName() + "','" + po.getlName() + 
@@ -35,7 +35,7 @@ public class PrivateOwnerDAO {
         return resultado;
     }
     
-    public boolean modificarPrivateOwner(PrivateOwner po){
+    public boolean modificarPrivateOwner(PrivateOwnerM po){
         boolean resultado = false;
         String sql = "UPDATE privateOwner SET fName = '" + po.getfName() + 
                 "', lName = '" + po.getlName() + "', address = '" + po.getAddress() +

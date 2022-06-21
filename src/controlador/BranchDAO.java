@@ -5,7 +5,7 @@
 package controlador;
 
 import conexionBD.ConexionBD;
-import modelo.Branch;
+import modelo.BranchM;
 /**
  *
  * @author denis
@@ -17,7 +17,7 @@ public class BranchDAO {
         conexion = new ConexionBD();
     }
     
-    public boolean insertarBranch(Branch b){
+    public boolean insertarBranch(BranchM b){
         boolean resultado = false;
         String sql = "INSERT INTO branch VALUES('" + b.getBranchNo() + "', '"
                 + b.getStreet() + "','" + b.getCity() + "','" + b.getPostcode() + "');";
@@ -32,7 +32,7 @@ public class BranchDAO {
         return resultado;
     }
     
-    public boolean modificarBranch(Branch b){
+    public boolean modificarBranch(BranchM b){
         boolean resultado = false;
         String sql = "UPDATE branch SET street = '" + b.getStreet() + 
                 "', city = '" + b.getCity() + "', postcode = '" + b.getPostcode() +
