@@ -51,7 +51,7 @@ public class PrivateOwner extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         comboFiltro = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaPO = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -103,7 +103,7 @@ public class PrivateOwner extends javax.swing.JFrame {
         comboFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Owner No", "First Name", "Last Name", "Dirección", "Num. Tel" }));
         comboFiltro.setEnabled(false);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaPO.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -114,7 +114,7 @@ public class PrivateOwner extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablaPO);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -319,11 +319,11 @@ public class PrivateOwner extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTable tablaPO;
     // End of variables declaration//GEN-END:variables
 }

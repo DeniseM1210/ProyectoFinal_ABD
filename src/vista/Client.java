@@ -6,7 +6,12 @@ package vista;
 
 import controlador.ClientDAO;
 import java.awt.Color;
+import java.awt.Component;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -20,6 +25,7 @@ public class Client extends javax.swing.JFrame {
     public Client() {
         initComponents();
         this.getContentPane().setBackground(Color.pink);
+        actualizarTabla();
     }
 
     /**
@@ -55,7 +61,7 @@ public class Client extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         comboFiltro = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaClient = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -120,7 +126,7 @@ public class Client extends javax.swing.JFrame {
         comboFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "ClientNo", "First Name", "Last Name", "Tel. No", "Pref. Type", "Max Rent" }));
         comboFiltro.setEnabled(false);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaClient.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -131,7 +137,7 @@ public class Client extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablaClient);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -294,7 +300,33 @@ public class Client extends javax.swing.JFrame {
                 comboFiltro.setEnabled(true);
             }
     }//GEN-LAST:event_comboOpActionPerformed
-
+    public void reestablecer(Component...componentes){
+        for(Component Component : componentes){
+            if(Component instanceof JTextField){
+                ((JTextField)Component).setText("");
+            }
+        }
+    }
+    
+    public void actualizarTabla(){
+        String controlador = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+        String url = "jdbc:sqlserver://localhost:1433;databaseName=dreamhome;"
+                    + "user=sa;"
+                    + "password=hanji123;"
+                    + "encrypt=true;trustServerCertificate=true;";
+        String consulta = "SELECT * FROM client";
+        
+        ResultSetTableModel modeloDatos = null;
+        try{
+            modeloDatos = new ResultSetTableModel(controlador, url, consulta);
+        }catch(SQLException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(ClassNotFoundException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tablaClient.setModel(modeloDatos);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -355,6 +387,6 @@ public class Client extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tablaClient;
     // End of variables declaration//GEN-END:variables
 }
