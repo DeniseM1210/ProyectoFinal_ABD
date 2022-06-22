@@ -62,11 +62,7 @@
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="btnBusc" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="btnAdd" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="btnElim" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="btnCons" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="btnLimp" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -117,7 +113,6 @@
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cajaClientNo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnAdd" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnBusc" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -247,6 +242,9 @@
         <Property name="text" type="java.lang.String" value="Consultar"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConsActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnLimp">
       <Properties>
@@ -296,7 +294,7 @@
     <Component class="javax.swing.JComboBox" name="comboFiltro">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="7">
+          <StringArray count="8">
             <StringItem index="0" value="..."/>
             <StringItem index="1" value="ClientNo"/>
             <StringItem index="2" value="First Name"/>
@@ -304,10 +302,14 @@
             <StringItem index="4" value="Tel. No"/>
             <StringItem index="5" value="Pref. Type"/>
             <StringItem index="6" value="Max Rent"/>
+            <StringItem index="7" value="Todos"/>
           </StringArray>
         </Property>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboFiltroActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
@@ -339,14 +341,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaEmail">
-    </Component>
-    <Component class="javax.swing.JButton" name="btnBusc">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Buscar"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>

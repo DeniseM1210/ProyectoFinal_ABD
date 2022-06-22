@@ -23,6 +23,7 @@ public class Client extends javax.swing.JFrame {
     /**
      * Creates new form Client
      */
+    byte op = 0;
     public Client() {
         initComponents();
         this.getContentPane().setBackground(Color.pink);
@@ -65,7 +66,6 @@ public class Client extends javax.swing.JFrame {
         tablaClient = new javax.swing.JTable();
         jLabel10 = new javax.swing.JLabel();
         cajaEmail = new javax.swing.JTextField();
-        btnBusc = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,6 +116,11 @@ public class Client extends javax.swing.JFrame {
 
         btnCons.setText("Consultar");
         btnCons.setEnabled(false);
+        btnCons.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsActionPerformed(evt);
+            }
+        });
 
         btnLimp.setText("Limpiar Campos");
         btnLimp.addActionListener(new java.awt.event.ActionListener() {
@@ -142,8 +147,13 @@ public class Client extends javax.swing.JFrame {
 
         jLabel9.setText("Filtro:");
 
-        comboFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "ClientNo", "First Name", "Last Name", "Tel. No", "Pref. Type", "Max Rent" }));
+        comboFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "ClientNo", "First Name", "Last Name", "Tel. No", "Pref. Type", "Max Rent", "Todos" }));
         comboFiltro.setEnabled(false);
+        comboFiltro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboFiltroActionPerformed(evt);
+            }
+        });
 
         tablaClient.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -164,13 +174,6 @@ public class Client extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tablaClient);
 
         jLabel10.setText("Email:");
-
-        btnBusc.setText("Buscar");
-        btnBusc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -208,10 +211,7 @@ public class Client extends javax.swing.JFrame {
                                 .addComponent(cajaPref)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnBusc)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnAdd))
+                            .addComponent(btnAdd, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnElim, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnCons, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnLimp, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -251,8 +251,7 @@ public class Client extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(cajaClientNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAdd)
-                    .addComponent(btnBusc))
+                    .addComponent(btnAdd))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -321,28 +320,28 @@ public class Client extends javax.swing.JFrame {
                 btnAdd.setEnabled(false);
                 btnAct.setEnabled(false);
                 btnElim.setEnabled(false);
-                btnCons.setEnabled(false);
+                btnCons.setEnabled(true);
                 btnLimp.setEnabled(false);
                 btnReg.setEnabled(true);
             }else if(comboOp.getSelectedIndex() == 1){
                 btnAdd.setEnabled(true);
                 btnAct.setEnabled(false);
                 btnElim.setEnabled(false);
-                btnCons.setEnabled(false);
+                btnCons.setEnabled(true);
                 btnLimp.setEnabled(true);
                 btnReg.setEnabled(true);
             }else if(comboOp.getSelectedIndex() == 2){
                 btnAdd.setEnabled(false);
                 btnAct.setEnabled(false);
                 btnElim.setEnabled(true);
-                btnCons.setEnabled(false);
+                btnCons.setEnabled(true);
                 btnLimp.setEnabled(true);
                 btnReg.setEnabled(true);
             }else if(comboOp.getSelectedIndex() == 3){
                 btnAdd.setEnabled(false);
                 btnAct.setEnabled(true);
                 btnElim.setEnabled(false);
-                btnCons.setEnabled(false);
+                btnCons.setEnabled(true);
                 btnLimp.setEnabled(true);
                 btnReg.setEnabled(true);
             }else if(comboOp.getSelectedIndex() == 4){
@@ -392,9 +391,135 @@ public class Client extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnActActionPerformed
 
-    private void btnBuscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscActionPerformed
-        actualizarTabla2();
-    }//GEN-LAST:event_btnBuscActionPerformed
+    private void comboFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboFiltroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboFiltroActionPerformed
+
+    private void btnConsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsActionPerformed
+        if(comboOp.getSelectedIndex() == 0){
+                actualizarTabla2();
+            }else if(comboOp.getSelectedIndex() == 1){
+                actualizarTabla2();
+            }else if(comboOp.getSelectedIndex() == 2){
+                actualizarTabla2();
+            }else if(comboOp.getSelectedIndex() == 3){
+                actualizarTabla2();
+            }else if(comboOp.getSelectedIndex() == 4){
+                ClientDAO cDAO = new ClientDAO();
+                
+                if(comboFiltro.getSelectedIndex() == 1){
+                    if(cajaClientNo.getText().isEmpty()){
+                        op = 0;
+                    }else{
+                        op = 1;
+                    }
+                    cajaClientNo.setEnabled(true);
+                    cajafName.setEnabled(false);
+                    cajalName.setEnabled(false);
+                    cajaTelNo.setEnabled(false);
+                    cajaPref.setEnabled(false);
+                    cajaMaxR.setEnabled(false);
+                    cajaEmail.setEnabled(false);
+                }else if(comboFiltro.getSelectedIndex() == 2){
+                    if(cajafName.getText().isEmpty()){
+                        op = 0;
+                    }else{
+                        op = 2;
+                    }
+                    cajaClientNo.setEnabled(false);
+                    cajafName.setEnabled(true);
+                    cajalName.setEnabled(false);
+                    cajaTelNo.setEnabled(false);
+                    cajaPref.setEnabled(false);
+                    cajaMaxR.setEnabled(false);
+                    cajaEmail.setEnabled(false);
+                }else if(comboFiltro.getSelectedIndex() == 3){
+                    if(cajalName.getText().isEmpty()){
+                        op = 0;
+                    }else{
+                        op = 3;
+                    }
+                    cajaClientNo.setEnabled(false);
+                    cajafName.setEnabled(false);
+                    cajalName.setEnabled(true);
+                    cajaTelNo.setEnabled(false);
+                    cajaPref.setEnabled(false);
+                    cajaMaxR.setEnabled(false);
+                    cajaEmail.setEnabled(false);
+                }else if(comboFiltro.getSelectedIndex() == 4){
+                    if(cajaTelNo.getText().isEmpty()){
+                        op = 0;
+                    }else{
+                        op = 4;
+                    }
+                    cajaClientNo.setEnabled(false);
+                    cajafName.setEnabled(false);
+                    cajalName.setEnabled(false);
+                    cajaTelNo.setEnabled(true);
+                    cajaPref.setEnabled(false);
+                    cajaMaxR.setEnabled(false);
+                    cajaEmail.setEnabled(false);
+                }else if(comboFiltro.getSelectedIndex() == 5){
+                    if(cajaPref.getText().isEmpty()){
+                        op = 0;
+                    }else{
+                        op = 5;
+                    }
+                    cajaClientNo.setEnabled(false);
+                    cajafName.setEnabled(false);
+                    cajalName.setEnabled(false);
+                    cajaTelNo.setEnabled(false);
+                    cajaPref.setEnabled(true);
+                    cajaMaxR.setEnabled(false);
+                    cajaEmail.setEnabled(false);
+                }else if(comboFiltro.getSelectedIndex() == 6){
+                    if(cajaMaxR.getText().isEmpty()){
+                        op = 0;
+                    }else{
+                        op = 6;
+                    }
+                    cajaClientNo.setEnabled(false);
+                    cajafName.setEnabled(false);
+                    cajalName.setEnabled(false);
+                    cajaTelNo.setEnabled(false);
+                    cajaPref.setEnabled(false);
+                    cajaMaxR.setEnabled(true);
+                    cajaEmail.setEnabled(false);
+                }else if(comboFiltro.getSelectedIndex() == 7){
+                    if(cajaEmail.getText().isEmpty()){
+                        op = 0;
+                    }else{
+                        op = 7;
+                    }
+                    cajaClientNo.setEnabled(false);
+                    cajafName.setEnabled(false);
+                    cajalName.setEnabled(false);
+                    cajaTelNo.setEnabled(false);
+                    cajaPref.setEnabled(false);
+                    cajaMaxR.setEnabled(false);
+                    cajaEmail.setEnabled(true);
+                }else if(comboFiltro.getSelectedIndex() == 0){
+                    op = 0;
+                    cajaClientNo.setEnabled(false);
+                    cajafName.setEnabled(false);
+                    cajalName.setEnabled(false);
+                    cajaTelNo.setEnabled(false);
+                    cajaPref.setEnabled(false);
+                    cajaMaxR.setEnabled(false);
+                    cajaEmail.setEnabled(false);
+                }else if(comboFiltro.getSelectedIndex() == 8){
+                    op = 8;
+                    cajaClientNo.setEnabled(true);
+                    cajafName.setEnabled(true);
+                    cajalName.setEnabled(true);
+                    cajaTelNo.setEnabled(true);
+                    cajaPref.setEnabled(true);
+                    cajaMaxR.setEnabled(true);
+                    cajaEmail.setEnabled(true);
+                }
+                actualizarTabla3();
+            }
+    }//GEN-LAST:event_btnConsActionPerformed
     public void reestablecer(Component...componentes){
         for(Component Component : componentes){
             if(Component instanceof JTextField){
@@ -431,6 +556,54 @@ public class Client extends javax.swing.JFrame {
         String consulta = "SELECT * FROM client WHERE clientNo = '" + cajaClientNo.getText() + "'";
         
         ResultSetTableModel modeloDatos = null;
+        try{
+            modeloDatos = new ResultSetTableModel(controlador, url, consulta);
+        }catch(SQLException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(ClassNotFoundException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tablaClient.setModel(modeloDatos);
+    }
+    
+    public void actualizarTabla3(){
+        String controlador = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+        String url = "jdbc:sqlserver://localhost:1433;databaseName=dreamhome;"
+                    + "user=sa;"
+                    + "password=hanji123;"
+                    + "encrypt=true;trustServerCertificate=true;";
+        String consulta = "SELECT * FROM client";
+        
+        ResultSetTableModel modeloDatos = null;
+        
+        if(op == 8){
+            int maxR = -1;
+            if(cajaMaxR.getText() != ""){
+                maxR = Integer.parseInt(cajaMaxR.getText());
+            }
+            consulta = "SELECT * FROM client WHERE clientNo = '" + cajaClientNo.getText() + 
+                    "', AND fName = '" + cajafName.getText() + "', AND lName = '" + cajalName.getText() +
+                    "', AND telNo = '" + cajaTelNo.getText() + "', AND prefType = '" + cajaPref.getText() +
+                    "', AND maxRent = " + maxR + ", AND email = '" + cajaEmail.getText() + "';";
+        }else if(op == 1){
+            consulta = "SELECT * FROM client WHERE clientNo = '" + cajaClientNo.getText() + "';";
+        }else if(op == 2){
+            consulta = "SELECT * FROM client WHERE fName = '" + cajafName.getText() + "';";
+        }else if(op == 3){
+            consulta = "SELECT * FROM client WHERE lName = '" + cajalName.getText() + "';";
+        }else if(op == 4){
+            consulta = "SELECT * FROM client WHERE telNo = '" + cajaTelNo.getText() + "';";
+        }else if(op == 5){
+            consulta = "SELECT * FROM client WHERE prefType = '" + cajaPref.getText() + "';";
+        }else if(op == 6){
+            int maxR = -1;
+            if(cajaMaxR.getText() != ""){
+                maxR = Integer.parseInt(cajaMaxR.getText());
+            }
+            consulta = "SELECT * FROM client WHERE maxRent = " + maxR + ";";
+        }else if(op == 7){
+            consulta = "SELECT * FROM client WHERE email = '" + cajaEmail.getText() + "';";
+        }
         try{
             modeloDatos = new ResultSetTableModel(controlador, url, consulta);
         }catch(SQLException ex){
@@ -490,7 +663,6 @@ public class Client extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAct;
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnBusc;
     private javax.swing.JButton btnCons;
     private javax.swing.JButton btnElim;
     private javax.swing.JButton btnLimp;
