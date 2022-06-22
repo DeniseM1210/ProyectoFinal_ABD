@@ -63,16 +63,6 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnAdd" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnElim" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnAct" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnConsul" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnLimp" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="comboOp" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -80,6 +70,20 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="comboFiltro" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btnElim" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnAct" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnConsul" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnLimp" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="btnBuscar" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
@@ -125,6 +129,7 @@
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cajaOwner" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnAdd" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -237,6 +242,9 @@
         <Property name="text" type="java.lang.String" value="Actualizar"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnActActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnConsul">
       <Properties>
@@ -341,6 +349,14 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaContra">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnBuscar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Buscar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

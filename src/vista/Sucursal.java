@@ -344,15 +344,11 @@ public class Sucursal extends javax.swing.JFrame {
         if(bDAO.modificarBranch(b)){
             actualizarTabla();
             reestablecer(cajaBranch, cajaCP, cajaCalle, cajaCiud);
-            cajaCalle.setEnabled(false);
-            cajaCP.setEnabled(false);
-            cajaCiud.setEnabled(false);
+        
         }else{
             actualizarTabla();
             reestablecer(cajaBranch, cajaCP, cajaCalle, cajaCiud);
-            cajaCalle.setEnabled(false);
-            cajaCP.setEnabled(false);
-            cajaCiud.setEnabled(false);
+            
         }
     }//GEN-LAST:event_btnActActionPerformed
 

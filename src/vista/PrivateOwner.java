@@ -65,6 +65,7 @@ public class PrivateOwner extends javax.swing.JFrame {
         cajaEmail = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         cajaContra = new javax.swing.JTextField();
+        btnBuscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,6 +100,11 @@ public class PrivateOwner extends javax.swing.JFrame {
 
         btnAct.setText("Actualizar");
         btnAct.setEnabled(false);
+        btnAct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActActionPerformed(evt);
+            }
+        });
 
         btnConsul.setText("Consultar");
         btnConsul.setEnabled(false);
@@ -153,6 +159,13 @@ public class PrivateOwner extends javax.swing.JFrame {
 
         jLabel10.setText("Contraseña:");
 
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -190,20 +203,23 @@ public class PrivateOwner extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnAdd, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnElim, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnAct, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnConsul, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnLimp, javax.swing.GroupLayout.Alignment.TRAILING)))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(comboOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(comboFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnElim, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnAct, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnConsul, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnLimp, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(btnBuscar)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnAdd))))))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -235,7 +251,8 @@ public class PrivateOwner extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(cajaOwner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAdd))
+                    .addComponent(btnAdd)
+                    .addComponent(btnBuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -353,6 +370,24 @@ public class PrivateOwner extends javax.swing.JFrame {
     private void tablaPOMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaPOMouseClicked
         obtenerRegistro();
     }//GEN-LAST:event_tablaPOMouseClicked
+
+    private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
+        PrivateOwnerDAO poDAO = new PrivateOwnerDAO();
+        
+        PrivateOwnerM po = new PrivateOwnerM(cajaOwner.getText(), cajaFn.getText(), cajaLn.getText(), cajaDir.getText(), cajaNumT.getText(), cajaEmail.getText(), cajaContra.getText());
+        
+        if(poDAO.modificarPrivateOwner(po)){
+            actualizarTabla();
+            reestablecer(cajaContra, cajaDir, cajaEmail, cajaFn, cajaLn, cajaNumT, cajaOwner);
+        }else{
+            actualizarTabla();
+            reestablecer(cajaContra, cajaDir, cajaEmail, cajaFn, cajaLn, cajaNumT, cajaOwner);
+        }
+    }//GEN-LAST:event_btnActActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        actualizarTabla2();
+    }//GEN-LAST:event_btnBuscarActionPerformed
     public void reestablecer(Component...componentes){
         for(Component Component : componentes){
             if(Component instanceof JTextField){
@@ -446,6 +481,7 @@ public class PrivateOwner extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAct;
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnConsul;
     private javax.swing.JButton btnElim;
     private javax.swing.JButton btnLimp;
