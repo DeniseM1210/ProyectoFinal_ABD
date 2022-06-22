@@ -91,6 +91,11 @@ public class PrivateOwner extends javax.swing.JFrame {
 
         btnElim.setText("Eliminar");
         btnElim.setEnabled(false);
+        btnElim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnElimActionPerformed(evt);
+            }
+        });
 
         btnAct.setText("Actualizar");
         btnAct.setEnabled(false);
@@ -137,6 +142,11 @@ public class PrivateOwner extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablaPO.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaPOMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablaPO);
 
         jLabel9.setText("Email:");
@@ -327,6 +337,22 @@ public class PrivateOwner extends javax.swing.JFrame {
     private void btnLimpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpActionPerformed
         reestablecer(cajaContra, cajaDir, cajaEmail, cajaFn, cajaLn, cajaNumT, cajaOwner);
     }//GEN-LAST:event_btnLimpActionPerformed
+
+    private void btnElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimActionPerformed
+        PrivateOwnerDAO poDAO = new PrivateOwnerDAO();
+        
+        if(poDAO.eliminarPrivateOwner(cajaOwner.getText())){
+            actualizarTabla();
+            reestablecer(cajaContra, cajaDir, cajaEmail, cajaFn, cajaLn, cajaNumT, cajaOwner);
+        }else{
+            actualizarTabla();
+            reestablecer(cajaContra, cajaDir, cajaEmail, cajaFn, cajaLn, cajaNumT, cajaOwner);
+        }
+    }//GEN-LAST:event_btnElimActionPerformed
+
+    private void tablaPOMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaPOMouseClicked
+        obtenerRegistro();
+    }//GEN-LAST:event_tablaPOMouseClicked
     public void reestablecer(Component...componentes){
         for(Component Component : componentes){
             if(Component instanceof JTextField){
@@ -352,6 +378,35 @@ public class PrivateOwner extends javax.swing.JFrame {
             Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
         }
         tablaPO.setModel(modeloDatos);
+    }
+    
+    public void actualizarTabla2(){
+        String controlador = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+        String url = "jdbc:sqlserver://localhost:1433;databaseName=dreamhome;"
+                    + "user=sa;"
+                    + "password=hanji123;"
+                    + "encrypt=true;trustServerCertificate=true;";
+        String consulta = "SELECT * FROM privateOwner WHERE ownerNo = '" + cajaOwner.getText() + "'";
+        
+        ResultSetTableModel modeloDatos = null;
+        try{
+            modeloDatos = new ResultSetTableModel(controlador, url, consulta);
+        }catch(SQLException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(ClassNotFoundException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tablaPO.setModel(modeloDatos);
+    }
+    
+    public void obtenerRegistro(){
+        cajaOwner.setText((String) tablaPO.getValueAt(tablaPO.getSelectedRow(), 0));
+        cajaFn.setText((String) tablaPO.getValueAt(tablaPO.getSelectedRow(), 1));
+        cajaLn.setText((String) tablaPO.getValueAt(tablaPO.getSelectedRow(), 2));
+        cajaDir.setText((String) tablaPO.getValueAt(tablaPO.getSelectedRow(), 3));
+        cajaNumT.setText((String) tablaPO.getValueAt(tablaPO.getSelectedRow(), 4));
+        cajaEmail.setText((String) tablaPO.getValueAt(tablaPO.getSelectedRow(), 5));
+        cajaContra.setText((String) tablaPO.getValueAt(tablaPO.getSelectedRow(), 6));
     }
     /**
      * @param args the command line arguments

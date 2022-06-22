@@ -28,7 +28,7 @@ public class PrivateOwnerDAO {
         return resultado;
     }
     
-    public boolean eliminarPrivateOwner(char ownerNo){
+    public boolean eliminarPrivateOwner(String ownerNo){
         boolean resultado = false;
         String sql = "DELETE FROM privateOwner WHERE ownerNo = '" + ownerNo + "';";
         resultado = conexion.ejecutarInstruccion(sql);
