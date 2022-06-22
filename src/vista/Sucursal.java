@@ -282,21 +282,21 @@ public class Sucursal extends javax.swing.JFrame {
                 btnAdd.setEnabled(true);
                 btnAct.setEnabled(false);
                 btnElim.setEnabled(false);
-                btnCons.setEnabled(false);
+                btnCons.setEnabled(true);
                 btnLimp.setEnabled(true);
                 btnReg.setEnabled(true);
             }else if(comboOp.getSelectedIndex() == 2){
                 btnAdd.setEnabled(false);
                 btnAct.setEnabled(false);
                 btnElim.setEnabled(true);
-                btnCons.setEnabled(false);
+                btnCons.setEnabled(true);
                 btnLimp.setEnabled(true);
                 btnReg.setEnabled(true);
             }else if(comboOp.getSelectedIndex() == 3){
                 btnAdd.setEnabled(false);
                 btnAct.setEnabled(true);
                 btnElim.setEnabled(false);
-                btnCons.setEnabled(false);
+                btnCons.setEnabled(true);
                 btnLimp.setEnabled(true);
                 btnReg.setEnabled(true);
             }else if(comboOp.getSelectedIndex() == 4){

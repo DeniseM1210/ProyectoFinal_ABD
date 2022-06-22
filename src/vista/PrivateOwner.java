@@ -23,6 +23,7 @@ public class PrivateOwner extends javax.swing.JFrame {
     /**
      * Creates new form PrivateOwner
      */
+    byte op = 0;
     public PrivateOwner() {
         initComponents();
         this.getContentPane().setBackground(Color.PINK);
@@ -65,7 +66,6 @@ public class PrivateOwner extends javax.swing.JFrame {
         cajaEmail = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         cajaContra = new javax.swing.JTextField();
-        btnBuscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -108,6 +108,11 @@ public class PrivateOwner extends javax.swing.JFrame {
 
         btnConsul.setText("Consultar");
         btnConsul.setEnabled(false);
+        btnConsul.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsulActionPerformed(evt);
+            }
+        });
 
         btnLimp.setText("Limpiar Campos");
         btnLimp.addActionListener(new java.awt.event.ActionListener() {
@@ -134,7 +139,7 @@ public class PrivateOwner extends javax.swing.JFrame {
 
         jLabel8.setText("Filtro:");
 
-        comboFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Owner No", "First Name", "Last Name", "Dirección", "Num. Tel" }));
+        comboFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Owner No", "First Name", "Last Name", "Dirección", "Num. Tel", "Email", "Contraseña", "Todos" }));
         comboFiltro.setEnabled(false);
 
         tablaPO.setModel(new javax.swing.table.DefaultTableModel(
@@ -158,13 +163,6 @@ public class PrivateOwner extends javax.swing.JFrame {
         jLabel9.setText("Email:");
 
         jLabel10.setText("Contraseña:");
-
-        btnBuscar.setText("Buscar");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -216,11 +214,8 @@ public class PrivateOwner extends javax.swing.JFrame {
                                     .addComponent(btnAct, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(btnConsul, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(btnLimp, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(btnBuscar)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnAdd))))))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
+                                    .addComponent(btnAdd, javax.swing.GroupLayout.Alignment.TRAILING)))))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -251,8 +246,7 @@ public class PrivateOwner extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(cajaOwner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAdd)
-                    .addComponent(btnBuscar))
+                    .addComponent(btnAdd))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -309,21 +303,21 @@ public class PrivateOwner extends javax.swing.JFrame {
                 btnAdd.setEnabled(true);
                 btnAct.setEnabled(false);
                 btnElim.setEnabled(false);
-                btnConsul.setEnabled(false);
+                btnConsul.setEnabled(true);
                 btnLimp.setEnabled(true);
                 btnReg.setEnabled(true);
             }else if(comboOp.getSelectedIndex() == 2){
                 btnAdd.setEnabled(false);
                 btnAct.setEnabled(false);
                 btnElim.setEnabled(true);
-                btnConsul.setEnabled(false);
+                btnConsul.setEnabled(true);
                 btnLimp.setEnabled(true);
                 btnReg.setEnabled(true);
             }else if(comboOp.getSelectedIndex() == 3){
                 btnAdd.setEnabled(false);
                 btnAct.setEnabled(true);
                 btnElim.setEnabled(false);
-                btnConsul.setEnabled(false);
+                btnConsul.setEnabled(true);
                 btnLimp.setEnabled(true);
                 btnReg.setEnabled(true);
             }else if(comboOp.getSelectedIndex() == 4){
@@ -385,9 +379,132 @@ public class PrivateOwner extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnActActionPerformed
 
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        actualizarTabla2();
-    }//GEN-LAST:event_btnBuscarActionPerformed
+    private void btnConsulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsulActionPerformed
+        if(comboOp.getSelectedIndex() == 0){
+                actualizarTabla2();
+            }else if(comboOp.getSelectedIndex() == 1){
+                actualizarTabla2();
+            }else if(comboOp.getSelectedIndex() == 2){
+                actualizarTabla2();
+            }else if(comboOp.getSelectedIndex() == 3){
+                actualizarTabla2();
+            }else if(comboOp.getSelectedIndex() == 4){
+                PrivateOwnerDAO poDAO = new PrivateOwnerDAO();
+                
+                if(comboFiltro.getSelectedIndex() == 1){
+                    if(cajaOwner.getText().isEmpty()){
+                        op = 0;
+                    }else{
+                        op = 1;
+                    }
+                    cajaOwner.setEnabled(true);
+                    cajaFn.setEnabled(false);
+                    cajaLn.setEnabled(false);
+                    cajaDir.setEnabled(false);
+                    cajaNumT.setEnabled(false);
+                    cajaEmail.setEnabled(false);
+                    cajaContra.setEnabled(false);
+                }else if(comboFiltro.getSelectedIndex() == 2){
+                    if(cajaFn.getText().isEmpty()){
+                        op = 0;
+                    }else{
+                        op = 2;
+                    }
+                    cajaOwner.setEnabled(false);
+                    cajaFn.setEnabled(true);
+                    cajaLn.setEnabled(false);
+                    cajaDir.setEnabled(false);
+                    cajaNumT.setEnabled(false);
+                    cajaEmail.setEnabled(false);
+                    cajaContra.setEnabled(false);
+                }else if(comboFiltro.getSelectedIndex() == 3){
+                    if(cajaLn.getText().isEmpty()){
+                        op = 0;
+                    }else{
+                        op = 3;
+                    }
+                    cajaOwner.setEnabled(false);
+                    cajaFn.setEnabled(false);
+                    cajaLn.setEnabled(true);
+                    cajaDir.setEnabled(false);
+                    cajaNumT.setEnabled(false);
+                    cajaEmail.setEnabled(false);
+                    cajaContra.setEnabled(false);
+                }else if(comboFiltro.getSelectedIndex() == 4){
+                    if(cajaDir.getText().isEmpty()){
+                        op = 0;
+                    }else{
+                        op = 4;
+                    }
+                    cajaOwner.setEnabled(false);
+                    cajaFn.setEnabled(false);
+                    cajaLn.setEnabled(false);
+                    cajaDir.setEnabled(true);
+                    cajaNumT.setEnabled(false);
+                    cajaEmail.setEnabled(false);
+                    cajaContra.setEnabled(false);
+                }else if(comboFiltro.getSelectedIndex() == 5){
+                    if(cajaNumT.getText().isEmpty()){
+                        op = 0;
+                    }else{
+                        op = 5;
+                    }
+                    cajaOwner.setEnabled(false);
+                    cajaFn.setEnabled(false);
+                    cajaLn.setEnabled(false);
+                    cajaDir.setEnabled(false);
+                    cajaNumT.setEnabled(true);
+                    cajaEmail.setEnabled(false);
+                    cajaContra.setEnabled(false);
+                }else if(comboFiltro.getSelectedIndex() == 6){
+                    if(cajaEmail.getText().isEmpty()){
+                        op = 0;
+                    }else{
+                        op = 6;
+                    }
+                    cajaOwner.setEnabled(false);
+                    cajaFn.setEnabled(false);
+                    cajaLn.setEnabled(false);
+                    cajaDir.setEnabled(false);
+                    cajaNumT.setEnabled(false);
+                    cajaEmail.setEnabled(true);
+                    cajaContra.setEnabled(false);
+                }else if(comboFiltro.getSelectedIndex() == 7){
+                    if(cajaContra.getText().isEmpty()){
+                        op = 0;
+                    }else{
+                        op = 7;
+                    }
+                    cajaOwner.setEnabled(false);
+                    cajaFn.setEnabled(false);
+                    cajaLn.setEnabled(false);
+                    cajaDir.setEnabled(false);
+                    cajaNumT.setEnabled(false);
+                    cajaEmail.setEnabled(false);
+                    cajaContra.setEnabled(true);
+                }else if(comboFiltro.getSelectedIndex() == 0){
+                    op = 0;
+                    cajaOwner.setEnabled(false);
+                    cajaFn.setEnabled(false);
+                    cajaLn.setEnabled(false);
+                    cajaDir.setEnabled(false);
+                    cajaNumT.setEnabled(false);
+                    cajaEmail.setEnabled(false);
+                    cajaContra.setEnabled(false);
+                }else if(comboFiltro.getSelectedIndex() == 8){
+                    op = 8;
+                    cajaOwner.setEnabled(true);
+                    cajaFn.setEnabled(true);
+                    cajaLn.setEnabled(true);
+                    cajaDir.setEnabled(true);
+                    cajaNumT.setEnabled(true);
+                    cajaEmail.setEnabled(true);
+                    cajaContra.setEnabled(true);
+                }
+                actualizarTabla3();
+            }
+
+    }//GEN-LAST:event_btnConsulActionPerformed
     public void reestablecer(Component...componentes){
         for(Component Component : componentes){
             if(Component instanceof JTextField){
@@ -424,6 +541,46 @@ public class PrivateOwner extends javax.swing.JFrame {
         String consulta = "SELECT * FROM privateOwner WHERE ownerNo = '" + cajaOwner.getText() + "'";
         
         ResultSetTableModel modeloDatos = null;
+        try{
+            modeloDatos = new ResultSetTableModel(controlador, url, consulta);
+        }catch(SQLException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(ClassNotFoundException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tablaPO.setModel(modeloDatos);
+    }
+    
+    public void actualizarTabla3(){
+        String controlador = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+        String url = "jdbc:sqlserver://localhost:1433;databaseName=dreamhome;"
+                    + "user=sa;"
+                    + "password=hanji123;"
+                    + "encrypt=true;trustServerCertificate=true;";
+        String consulta = "SELECT * FROM privateOwner";
+        
+        ResultSetTableModel modeloDatos = null;
+        
+        if(op == 8){
+            consulta = "SELECT * FROM privateowner WHERE ownerNo = '" + cajaOwner.getText() +
+                    "', AND fName = '" + cajaFn.getText() + "', AND lName = '" + cajaLn.getText() +
+                    "', AND address = '" + cajaDir.getText() + "', AND telNo = '" + cajaNumT.getText() +
+                    "', AND email = '" + cajaEmail.getText() + "', AND password = '" + cajaContra.getText() + "';";
+        }else if(op == 1){
+            consulta = "SELECT * FROM privateowner WHERE ownerNo = '" + cajaOwner.getText() + "';";
+        }else if(op == 2){
+            consulta = "SELECT * FROM privateowner WHERE fName = '" + cajaFn.getText() + "';";
+        }else if(op == 3){
+            consulta = "SELECT * FROM privateowner WHERE lName = '" + cajaLn.getText() + "';";
+        }else if(op == 4){
+            consulta = "SELECT * FROM privateowner WHERE address = '" + cajaDir.getText() + "';";
+        }else if(op == 5){
+            consulta = "SELECT * FROM privateowner WHERE telNo = '" + cajaNumT.getText() + "';";
+        }else if(op == 6){
+            consulta = "SELECT * FROM privateowner WHERE email = '" + cajaEmail.getText() + "';";
+        }else if(op == 7){
+            consulta = "SELECT * FROM privateowner WHERE password = '" + cajaContra.getText() + "';";
+        }
         try{
             modeloDatos = new ResultSetTableModel(controlador, url, consulta);
         }catch(SQLException ex){
@@ -481,7 +638,6 @@ public class PrivateOwner extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAct;
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnConsul;
     private javax.swing.JButton btnElim;
     private javax.swing.JButton btnLimp;
