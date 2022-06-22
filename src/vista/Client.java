@@ -7,11 +7,15 @@ package vista;
 import controlador.ClientDAO;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import modelo.ClientM;
 
 /**
@@ -24,6 +28,8 @@ public class Client extends javax.swing.JFrame {
      * Creates new form Client
      */
     byte op = 0;
+    private TableRowSorter trsFiltro;
+    private DefaultTableModel tablaDatos;
     public Client() {
         initComponents();
         this.getContentPane().setBackground(Color.pink);
@@ -84,9 +90,44 @@ public class Client extends javax.swing.JFrame {
 
         jLabel7.setText("Max Rent:");
 
+        cajaClientNo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cajaClientNoKeyTyped(evt);
+            }
+        });
+
         cajafName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cajafNameActionPerformed(evt);
+            }
+        });
+        cajafName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cajafNameKeyTyped(evt);
+            }
+        });
+
+        cajalName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cajalNameKeyTyped(evt);
+            }
+        });
+
+        cajaTelNo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cajaTelNoKeyTyped(evt);
+            }
+        });
+
+        cajaPref.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cajaPrefKeyTyped(evt);
+            }
+        });
+
+        cajaMaxR.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cajaMaxRKeyTyped(evt);
             }
         });
 
@@ -520,6 +561,52 @@ public class Client extends javax.swing.JFrame {
                 actualizarTabla3();
             }
     }//GEN-LAST:event_btnConsActionPerformed
+
+    private void cajaMaxRKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaMaxRKeyTyped
+        char caracter = evt.getKeyChar();
+        if(((caracter < 48) || (caracter > 57)) && (caracter != '\b')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_cajaMaxRKeyTyped
+
+    private void cajaTelNoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaTelNoKeyTyped
+        char caracter = evt.getKeyChar();
+        if(((caracter < 48) || (caracter > 57)) && (caracter != 45) && (caracter != '\b')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_cajaTelNoKeyTyped
+
+    private void cajaClientNoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaClientNoKeyTyped
+        char caracter = evt.getKeyChar();
+        if(((caracter < 48) || (caracter > 57)) && (caracter != '\b')
+                && ((caracter < 65) || (caracter > 90))){
+            evt.consume();
+        }
+    }//GEN-LAST:event_cajaClientNoKeyTyped
+
+    private void cajafNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajafNameKeyTyped
+        char carac = evt.getKeyChar();
+        if(Character.isLetter(carac) || Character.isSpaceChar(carac)){
+        }else{
+            evt.consume();
+        }
+    }//GEN-LAST:event_cajafNameKeyTyped
+
+    private void cajalNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajalNameKeyTyped
+        char carac = evt.getKeyChar();
+        if(Character.isLetter(carac) || Character.isSpaceChar(carac)){
+        }else{
+            evt.consume();
+        }
+    }//GEN-LAST:event_cajalNameKeyTyped
+
+    private void cajaPrefKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaPrefKeyTyped
+        char carac = evt.getKeyChar();
+        if(Character.isLetter(carac)){
+        }else{
+            evt.consume();
+        }
+    }//GEN-LAST:event_cajaPrefKeyTyped
     public void reestablecer(Component...componentes){
         for(Component Component : componentes){
             if(Component instanceof JTextField){

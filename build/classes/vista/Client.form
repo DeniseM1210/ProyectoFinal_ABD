@@ -196,19 +196,35 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaClientNo">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaClientNoKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cajafName">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cajafNameActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajafNameKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cajalName">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajalNameKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaTelNo">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaTelNoKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaPref">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaPrefKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaMaxR">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaMaxRKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnAdd">
       <Properties>
