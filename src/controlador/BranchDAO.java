@@ -36,7 +36,7 @@ public class BranchDAO {
         boolean resultado = false;
         String sql = "UPDATE branch SET street = '" + b.getStreet() + 
                 "', city = '" + b.getCity() + "', postcode = '" + b.getPostcode() +
-                "' WHERE branchNo = '" + b.getBranchNo() + "';";
+                "' WHERE branchNo = '" + b.getBranchNo() + "'";
         resultado = conexion.ejecutarInstruccion(sql);
         
         return resultado;

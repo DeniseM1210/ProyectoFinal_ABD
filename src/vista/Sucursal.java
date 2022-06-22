@@ -60,6 +60,7 @@ public class Sucursal extends javax.swing.JFrame {
         comboFiltro = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaBranch = new javax.swing.JTable();
+        btnBuscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -92,6 +93,11 @@ public class Sucursal extends javax.swing.JFrame {
 
         btnAct.setText("Actualizar");
         btnAct.setEnabled(false);
+        btnAct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActActionPerformed(evt);
+            }
+        });
 
         btnCons.setText("Consultar");
         btnCons.setEnabled(false);
@@ -142,6 +148,13 @@ public class Sucursal extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tablaBranch);
 
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -175,19 +188,22 @@ public class Sucursal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnAdd, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnElim, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnAct, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnCons, javax.swing.GroupLayout.Alignment.TRAILING)))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(comboOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(comboFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnElim, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnAct, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnCons, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(btnBuscar)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnAdd))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,7 +227,8 @@ public class Sucursal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(cajaBranch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAdd))
+                    .addComponent(btnAdd)
+                    .addComponent(btnBuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -318,6 +335,30 @@ public class Sucursal extends javax.swing.JFrame {
     private void tablaBranchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaBranchMouseClicked
         obtenerRegistro();
     }//GEN-LAST:event_tablaBranchMouseClicked
+
+    private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
+        BranchDAO bDAO = new BranchDAO();
+        
+        BranchM b = new BranchM(cajaBranch.getText(), cajaCalle.getText(), cajaCiud.getText(), cajaCP.getText());
+        
+        if(bDAO.modificarBranch(b)){
+            actualizarTabla();
+            reestablecer(cajaBranch, cajaCP, cajaCalle, cajaCiud);
+            cajaCalle.setEnabled(false);
+            cajaCP.setEnabled(false);
+            cajaCiud.setEnabled(false);
+        }else{
+            actualizarTabla();
+            reestablecer(cajaBranch, cajaCP, cajaCalle, cajaCiud);
+            cajaCalle.setEnabled(false);
+            cajaCP.setEnabled(false);
+            cajaCiud.setEnabled(false);
+        }
+    }//GEN-LAST:event_btnActActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        actualizarTabla2();
+    }//GEN-LAST:event_btnBuscarActionPerformed
     public void reestablecer(Component...componentes){
         for(Component Component : componentes){
             if(Component instanceof JTextField){
@@ -408,6 +449,7 @@ public class Sucursal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAct;
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCons;
     private javax.swing.JButton btnElim;
     private javax.swing.JButton btnLimp;
