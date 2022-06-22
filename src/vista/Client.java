@@ -99,6 +99,11 @@ public class Client extends javax.swing.JFrame {
 
         btnElim.setText("Eliminar");
         btnElim.setEnabled(false);
+        btnElim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnElimActionPerformed(evt);
+            }
+        });
 
         btnAct.setText("Actualizar");
         btnAct.setEnabled(false);
@@ -145,6 +150,11 @@ public class Client extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablaClient.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaClientMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablaClient);
 
         jLabel10.setText("Email:");
@@ -332,6 +342,22 @@ public class Client extends javax.swing.JFrame {
     private void btnLimpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpActionPerformed
         reestablecer(cajaClientNo, cajaEmail, cajaMaxR, cajaPref, cajaTelNo, cajafName, cajalName);
     }//GEN-LAST:event_btnLimpActionPerformed
+
+    private void btnElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimActionPerformed
+        ClientDAO cDAO = new ClientDAO();
+        
+        if(cDAO.eliminarClient(cajaClientNo.getText())){
+            actualizarTabla();
+            reestablecer(cajaClientNo, cajaEmail, cajaMaxR, cajaPref, cajaTelNo, cajafName, cajalName);
+        }else{
+            actualizarTabla();
+            reestablecer(cajaClientNo, cajaEmail, cajaMaxR, cajaPref, cajaTelNo, cajafName, cajalName);
+        }
+    }//GEN-LAST:event_btnElimActionPerformed
+
+    private void tablaClientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaClientMouseClicked
+        obtenerRegistro();
+    }//GEN-LAST:event_tablaClientMouseClicked
     public void reestablecer(Component...componentes){
         for(Component Component : componentes){
             if(Component instanceof JTextField){
@@ -357,6 +383,36 @@ public class Client extends javax.swing.JFrame {
             Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
         }
         tablaClient.setModel(modeloDatos);
+    }
+    
+    public void actualizarTabla2(){
+        String controlador = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+        String url = "jdbc:sqlserver://localhost:1433;databaseName=dreamhome;"
+                    + "user=sa;"
+                    + "password=hanji123;"
+                    + "encrypt=true;trustServerCertificate=true;";
+        String consulta = "SELECT * FROM client WHERE clientNo = '" + cajaClientNo.getText() + "'";
+        
+        ResultSetTableModel modeloDatos = null;
+        try{
+            modeloDatos = new ResultSetTableModel(controlador, url, consulta);
+        }catch(SQLException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(ClassNotFoundException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tablaClient.setModel(modeloDatos);
+    }
+    
+    public void obtenerRegistro(){
+        cajaClientNo.setText((String)tablaClient.getValueAt(tablaClient.getSelectedRow(), 0));
+        cajafName.setText((String)tablaClient.getValueAt(tablaClient.getSelectedRow(), 1));
+        cajalName.setText((String)tablaClient.getValueAt(tablaClient.getSelectedRow(), 2));
+        cajaTelNo.setText((String)tablaClient.getValueAt(tablaClient.getSelectedRow(), 3));
+        cajaPref.setText((String)tablaClient.getValueAt(tablaClient.getSelectedRow(), 4));
+        int i = (int) tablaClient.getValueAt(tablaClient.getSelectedRow(), 5);
+        cajaMaxR.setText(i + "");
+        cajaEmail.setText((String)tablaClient.getValueAt(tablaClient.getSelectedRow(), 6));
     }
     
     /**

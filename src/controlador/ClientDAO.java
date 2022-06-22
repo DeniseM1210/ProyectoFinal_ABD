@@ -26,7 +26,7 @@ public class ClientDAO {
         return resultado;
     }
     
-    public boolean eliminarClient(char clientNo){
+    public boolean eliminarClient(String clientNo){
         boolean resultado = false;
         String sql = "DELETE FROM client WHERE clientNo = '" + clientNo + "';";
         resultado = conexion.ejecutarInstruccion(sql);
