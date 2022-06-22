@@ -84,6 +84,11 @@ public class Sucursal extends javax.swing.JFrame {
 
         btnElim.setText("Eliminar");
         btnElim.setEnabled(false);
+        btnElim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnElimActionPerformed(evt);
+            }
+        });
 
         btnAct.setText("Actualizar");
         btnAct.setEnabled(false);
@@ -130,6 +135,11 @@ public class Sucursal extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablaBranch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaBranchMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablaBranch);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -292,6 +302,22 @@ public class Sucursal extends javax.swing.JFrame {
     private void btnLimpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpActionPerformed
         reestablecer(cajaBranch, cajaCP, cajaCalle, cajaCiud);
     }//GEN-LAST:event_btnLimpActionPerformed
+
+    private void btnElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimActionPerformed
+        BranchDAO bDAO = new BranchDAO();
+        
+        if(bDAO.eliminarBranch(cajaBranch.getText())){
+            actualizarTabla();
+            reestablecer(cajaBranch, cajaCP, cajaCalle, cajaCiud);
+        }else{
+            actualizarTabla();
+            reestablecer(cajaBranch, cajaCP, cajaCalle, cajaCiud);
+        }
+    }//GEN-LAST:event_btnElimActionPerformed
+
+    private void tablaBranchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaBranchMouseClicked
+        obtenerRegistro();
+    }//GEN-LAST:event_tablaBranchMouseClicked
     public void reestablecer(Component...componentes){
         for(Component Component : componentes){
             if(Component instanceof JTextField){
@@ -317,6 +343,32 @@ public class Sucursal extends javax.swing.JFrame {
             Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
         }
         tablaBranch.setModel(modeloDatos);
+    }
+    
+    public void actualizarTabla2(){
+        String controlador = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+        String url = "jdbc:sqlserver://localhost:1433;databaseName=dreamhome;"
+                    + "user=sa;"
+                    + "password=hanji123;"
+                    + "encrypt=true;trustServerCertificate=true;";
+        String consulta = "SELECT * FROM branch WHERE branchNo = '" + cajaBranch.getText() + "'";
+        
+        ResultSetTableModel modeloDatos = null;
+        try{
+            modeloDatos = new ResultSetTableModel(controlador, url, consulta);
+        }catch(SQLException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(ClassNotFoundException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tablaBranch.setModel(modeloDatos);
+    }
+    
+    public void obtenerRegistro(){
+        cajaBranch.setText((String) tablaBranch.getValueAt(tablaBranch.getSelectedRow(), 0));
+        cajaCalle.setText((String) tablaBranch.getValueAt(tablaBranch.getSelectedRow(), 1));
+        cajaCiud.setText((String) tablaBranch.getValueAt(tablaBranch.getSelectedRow(), 2));
+        cajaCP.setText((String) tablaBranch.getValueAt(tablaBranch.getSelectedRow(), 3));
     }
     /**
      * @param args the command line arguments

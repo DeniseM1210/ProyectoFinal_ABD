@@ -25,7 +25,7 @@ public class BranchDAO {
         return resultado;
     }
     
-    public boolean eliminarBranch(char branchNo){
+    public boolean eliminarBranch(String branchNo){
         boolean resultado = false;
         String sql = "DELETE FROM branch WHERE branchNo = '" + branchNo + "';";
         resultado = conexion.ejecutarInstruccion(sql);
