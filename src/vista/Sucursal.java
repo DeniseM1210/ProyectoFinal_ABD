@@ -23,6 +23,7 @@ public class Sucursal extends javax.swing.JFrame {
     /**
      * Creates new form Sucursal
      */
+    byte op = 0;
     public Sucursal() {
         initComponents();
         this.getContentPane().setBackground(Color.PINK);
@@ -60,7 +61,6 @@ public class Sucursal extends javax.swing.JFrame {
         comboFiltro = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaBranch = new javax.swing.JTable();
-        btnBuscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -101,6 +101,11 @@ public class Sucursal extends javax.swing.JFrame {
 
         btnCons.setText("Consultar");
         btnCons.setEnabled(false);
+        btnCons.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsActionPerformed(evt);
+            }
+        });
 
         btnLimp.setText("Limpiar Campos");
         btnLimp.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +132,7 @@ public class Sucursal extends javax.swing.JFrame {
 
         jLabel7.setText("Filtro:");
 
-        comboFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Branch No", "Calle", "Ciudad", "Código Postal" }));
+        comboFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Branch No", "Calle", "Ciudad", "Código Postal", "Todos", " " }));
         comboFiltro.setEnabled(false);
 
         tablaBranch.setModel(new javax.swing.table.DefaultTableModel(
@@ -147,13 +152,6 @@ public class Sucursal extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(tablaBranch);
-
-        btnBuscar.setText("Buscar");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -200,10 +198,7 @@ public class Sucursal extends javax.swing.JFrame {
                                     .addComponent(btnElim, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(btnAct, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(btnCons, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(btnBuscar)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnAdd))))))
+                                    .addComponent(btnAdd, javax.swing.GroupLayout.Alignment.TRAILING)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,8 +222,7 @@ public class Sucursal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(cajaBranch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAdd)
-                    .addComponent(btnBuscar))
+                    .addComponent(btnAdd))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -352,9 +346,74 @@ public class Sucursal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnActActionPerformed
 
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        actualizarTabla2();
-    }//GEN-LAST:event_btnBuscarActionPerformed
+    private void btnConsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsActionPerformed
+        if(comboOp.getSelectedIndex() == 0){
+                actualizarTabla2();
+            }else if(comboOp.getSelectedIndex() == 1){
+                actualizarTabla2();
+            }else if(comboOp.getSelectedIndex() == 2){
+                actualizarTabla2();
+            }else if(comboOp.getSelectedIndex() == 3){
+                actualizarTabla2();
+            }else if(comboOp.getSelectedIndex() == 4){
+                BranchDAO bDAO = new BranchDAO();
+                
+                if(comboFiltro.getSelectedIndex() == 1){
+                    if(cajaBranch.getText().isEmpty()){
+                        op = 0;
+                    }else{
+                        op = 1;
+                    }
+                    cajaBranch.setEnabled(true);
+                    cajaCalle.setEnabled(false);
+                    cajaCiud.setEnabled(false);
+                    cajaCP.setEnabled(false);
+                }else if(comboFiltro.getSelectedIndex() == 2){
+                    if(cajaCalle.getText().isEmpty()){
+                        op = 0;
+                    }else{
+                        op = 2;
+                    }
+                    cajaBranch.setEnabled(false);
+                    cajaCalle.setEnabled(true);
+                    cajaCiud.setEnabled(false);
+                    cajaCP.setEnabled(false);
+                }else if(comboFiltro.getSelectedIndex() == 3){
+                    if(cajaCiud.getText().isEmpty()){
+                        op = 0;
+                    }else{
+                        op = 3;
+                    }
+                    cajaBranch.setEnabled(false);
+                    cajaCalle.setEnabled(false);
+                    cajaCiud.setEnabled(true);
+                    cajaCP.setEnabled(false);
+                }else if(comboFiltro.getSelectedIndex() == 4){
+                    if(cajaCP.getText().isEmpty()){
+                        op = 0;
+                    }else{
+                        op = 4;
+                    }
+                    cajaBranch.setEnabled(false);
+                    cajaCalle.setEnabled(false);
+                    cajaCiud.setEnabled(false);
+                    cajaCP.setEnabled(true);
+                }else if(comboFiltro.getSelectedIndex() == 0){
+                    op = 0;
+                    cajaBranch.setEnabled(false);
+                    cajaCalle.setEnabled(false);
+                    cajaCiud.setEnabled(false);
+                    cajaCP.setEnabled(false);
+                }else if(comboFiltro.getSelectedIndex() == 5){
+                    op = 5;
+                    cajaBranch.setEnabled(true);
+                    cajaCalle.setEnabled(true);
+                    cajaCiud.setEnabled(true);
+                    cajaCP.setEnabled(true);
+                }
+                actualizarTabla3();
+            }
+    }//GEN-LAST:event_btnConsActionPerformed
     public void reestablecer(Component...componentes){
         for(Component Component : componentes){
             if(Component instanceof JTextField){
@@ -391,6 +450,39 @@ public class Sucursal extends javax.swing.JFrame {
         String consulta = "SELECT * FROM branch WHERE branchNo = '" + cajaBranch.getText() + "'";
         
         ResultSetTableModel modeloDatos = null;
+        try{
+            modeloDatos = new ResultSetTableModel(controlador, url, consulta);
+        }catch(SQLException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(ClassNotFoundException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tablaBranch.setModel(modeloDatos);
+    }
+    
+    public void actualizarTabla3(){
+        String controlador = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+        String url = "jdbc:sqlserver://localhost:1433;databaseName=dreamhome;"
+                    + "user=sa;"
+                    + "password=hanji123;"
+                    + "encrypt=true;trustServerCertificate=true;";
+        String consulta = "SELECT * FROM branch";
+        
+        ResultSetTableModel modeloDatos = null;
+        
+        if(op == 5){
+            consulta = "SELECT * FROM branch WHERE branchNo = '" + cajaBranch.getText() +
+                    "', AND street = '" + cajaCalle.getText() + "', AND city = '" + cajaCiud.getText() +
+                    "', AND postcode = '" + cajaCP.getText() + "';";
+        }else if(op == 1){
+            consulta = "SELECT * FROM branch WHERE branchNo = '" + cajaBranch.getText() + "';";
+        }else if(op == 2){
+            consulta = "SELECT * FROM branch WHERE street = '" + cajaCalle.getText() + "';";
+        }else if(op == 3){
+            consulta = "SELECT * FROM branch WHERE city = '" + cajaCiud.getText() + "';";
+        }else if(op == 2){
+            consulta = "SELECT * FROM branch WHERE postcode = '" + cajaCP.getText() + "';";
+        }
         try{
             modeloDatos = new ResultSetTableModel(controlador, url, consulta);
         }catch(SQLException ex){
@@ -445,7 +537,6 @@ public class Sucursal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAct;
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCons;
     private javax.swing.JButton btnElim;
     private javax.swing.JButton btnLimp;
