@@ -28,6 +28,7 @@ public class PrivateOwner extends javax.swing.JFrame {
         initComponents();
         this.getContentPane().setBackground(Color.PINK);
         actualizarTabla();
+        this.setLocationRelativeTo(null);
     }
 
     /**

@@ -34,6 +34,7 @@ public class Client extends javax.swing.JFrame {
         initComponents();
         this.getContentPane().setBackground(Color.pink);
         actualizarTabla();
+        this.setLocationRelativeTo(null);
     }
 
     /**

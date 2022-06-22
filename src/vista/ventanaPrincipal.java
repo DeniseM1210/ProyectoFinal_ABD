@@ -23,6 +23,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     public ventanaPrincipal() {
         this.getContentPane().setBackground(Color.PINK);
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

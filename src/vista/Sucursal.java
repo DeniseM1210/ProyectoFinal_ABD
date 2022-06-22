@@ -29,6 +29,7 @@ public class Sucursal extends javax.swing.JFrame {
         this.getContentPane().setBackground(Color.PINK);
         
         actualizarTabla();
+        this.setLocationRelativeTo(null);
     }
 
     /**

@@ -23,8 +23,8 @@ public class ConexionBD {
     public ConexionBD(){
         try{
             String url = "jdbc:sqlserver://localhost:1433;databaseName=dreamhome;"
-                    + "user=sa;"
-                    + "password=hanji123;"
+                    + "user=denise1;"
+                    + "password=hanji15;"
                     + "encrypt=true;trustServerCertificate=true;";
             
             conexionBD = DriverManager.getConnection(url);
