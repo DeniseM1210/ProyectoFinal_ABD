@@ -82,6 +82,36 @@ public class PrivateOwner extends javax.swing.JFrame {
 
         jLabel6.setText("Num. Tel:");
 
+        cajaOwner.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cajaOwnerKeyTyped(evt);
+            }
+        });
+
+        cajaFn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cajaFnKeyTyped(evt);
+            }
+        });
+
+        cajaLn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cajaLnKeyTyped(evt);
+            }
+        });
+
+        cajaDir.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cajaDirKeyTyped(evt);
+            }
+        });
+
+        cajaNumT.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cajaNumTKeyTyped(evt);
+            }
+        });
+
         btnAdd.setText("Agregar");
         btnAdd.setEnabled(false);
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -505,6 +535,45 @@ public class PrivateOwner extends javax.swing.JFrame {
             }
 
     }//GEN-LAST:event_btnConsulActionPerformed
+
+    private void cajaOwnerKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaOwnerKeyTyped
+        char caracter = evt.getKeyChar();
+        if(((caracter < 48) || (caracter > 57)) && (caracter != '\b')
+                && ((caracter < 65) || (caracter > 90))){
+            evt.consume();
+        }
+    }//GEN-LAST:event_cajaOwnerKeyTyped
+
+    private void cajaFnKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaFnKeyTyped
+        char carac = evt.getKeyChar();
+        if(Character.isLetter(carac) || Character.isSpaceChar(carac)){
+        }else{
+            evt.consume();
+        }
+    }//GEN-LAST:event_cajaFnKeyTyped
+
+    private void cajaLnKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaLnKeyTyped
+        char carac = evt.getKeyChar();
+        if(Character.isLetter(carac) || Character.isSpaceChar(carac)){
+        }else{
+            evt.consume();
+        }
+    }//GEN-LAST:event_cajaLnKeyTyped
+
+    private void cajaDirKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaDirKeyTyped
+        char carac = evt.getKeyChar();
+        if(Character.isLetter(carac) || Character.isSpaceChar(carac) || Character.isDigit(carac)){
+        }else{
+            evt.consume();
+        }
+    }//GEN-LAST:event_cajaDirKeyTyped
+
+    private void cajaNumTKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaNumTKeyTyped
+        char caracter = evt.getKeyChar();
+        if(((caracter < 48) || (caracter > 57)) && (caracter != 45) && (caracter != '\b')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_cajaNumTKeyTyped
     public void reestablecer(Component...componentes){
         for(Component Component : componentes){
             if(Component instanceof JTextField){

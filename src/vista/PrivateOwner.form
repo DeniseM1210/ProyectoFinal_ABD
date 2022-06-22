@@ -205,14 +205,29 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaOwner">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaOwnerKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaFn">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaFnKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaLn">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaLnKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaDir">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaDirKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaNumT">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaNumTKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnAdd">
       <Properties>
