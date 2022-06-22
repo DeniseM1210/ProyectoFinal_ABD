@@ -75,6 +75,30 @@ public class Sucursal extends javax.swing.JFrame {
 
         jLabel5.setText("Código Postal:");
 
+        cajaBranch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cajaBranchKeyTyped(evt);
+            }
+        });
+
+        cajaCalle.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cajaCalleKeyTyped(evt);
+            }
+        });
+
+        cajaCiud.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cajaCiudKeyTyped(evt);
+            }
+        });
+
+        cajaCP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cajaCPKeyTyped(evt);
+            }
+        });
+
         btnAdd.setText("Agregar");
         btnAdd.setEnabled(false);
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -414,6 +438,38 @@ public class Sucursal extends javax.swing.JFrame {
                 actualizarTabla3();
             }
     }//GEN-LAST:event_btnConsActionPerformed
+
+    private void cajaBranchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaBranchKeyTyped
+        char caracter = evt.getKeyChar();
+        if(((caracter < 48) || (caracter > 57)) && (caracter != '\b')
+                && ((caracter < 65) || (caracter > 90))){
+            evt.consume();
+        }
+    }//GEN-LAST:event_cajaBranchKeyTyped
+
+    private void cajaCalleKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaCalleKeyTyped
+        char carac = evt.getKeyChar();
+        if(Character.isLetter(carac) || Character.isSpaceChar(carac) || Character.isDigit(carac)){
+        }else{
+            evt.consume();
+        }
+    }//GEN-LAST:event_cajaCalleKeyTyped
+
+    private void cajaCiudKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaCiudKeyTyped
+        char carac = evt.getKeyChar();
+        if(Character.isLetter(carac)){
+        }else{
+            evt.consume();
+        }
+    }//GEN-LAST:event_cajaCiudKeyTyped
+
+    private void cajaCPKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaCPKeyTyped
+        char caracter = evt.getKeyChar();
+        if(((caracter < 48) || (caracter > 57)) && (caracter != '\b')
+                && ((caracter < 65) || (caracter > 90)) && (caracter != 32)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_cajaCPKeyTyped
     public void reestablecer(Component...componentes){
         for(Component Component : componentes){
             if(Component instanceof JTextField){
