@@ -9,7 +9,7 @@ package modelo;
  * @author denis
  */
 public class BranchM {
-    private char branchNo;
+    private String branchNo;
     private String street;
     private String city;
     private String postcode;
@@ -17,14 +17,14 @@ public class BranchM {
     public BranchM() {
     }
 
-    public BranchM(char branchNo, String street, String city, String postcode) {
+    public BranchM(String branchNo, String street, String city, String postcode) {
         this.branchNo = branchNo;
         this.street = street;
         this.city = city;
         this.postcode = postcode;
     }
 
-    public char getBranchNo() {
+    public String getBranchNo() {
         return branchNo;
     }
 
@@ -40,7 +40,7 @@ public class BranchM {
         return postcode;
     }
 
-    public void setBranchNo(char branchNo) {
+    public void setBranchNo(String branchNo) {
         this.branchNo = branchNo;
     }
 
