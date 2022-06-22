@@ -37,8 +37,8 @@ public class ClientDAO {
         boolean resultado = false;
         String sql = "UPDATE client SET fName = '" + c.getfName() +
                 "', lName = '" + c.getlName() + "', telNo = '" + c.getTelNo() + 
-                        "', prefType = '" + c.getPrefType() + "', maxRent = " +
-                        ", email = '" + c.getEmail() + "';";
+                "', prefType = '" + c.getPrefType() + "', maxRent = " + c.getMaxRent() +
+                ", email = '" + c.getEmail() + "' WHERE clientNo = '" + c.getClientNo() + "'";
         resultado = conexion.ejecutarInstruccion(sql);
         return resultado;
     }

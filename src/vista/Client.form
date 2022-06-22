@@ -62,7 +62,11 @@
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnAdd" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="btnBusc" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <Component id="btnElim" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="btnCons" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="btnLimp" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -113,6 +117,7 @@
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cajaClientNo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnAdd" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnBusc" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -233,6 +238,9 @@
         <Property name="text" type="java.lang.String" value="Actualizar"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnActActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnCons">
       <Properties>
@@ -331,6 +339,14 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaEmail">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnBusc">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Buscar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

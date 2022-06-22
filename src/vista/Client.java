@@ -65,6 +65,7 @@ public class Client extends javax.swing.JFrame {
         tablaClient = new javax.swing.JTable();
         jLabel10 = new javax.swing.JLabel();
         cajaEmail = new javax.swing.JTextField();
+        btnBusc = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -107,6 +108,11 @@ public class Client extends javax.swing.JFrame {
 
         btnAct.setText("Actualizar");
         btnAct.setEnabled(false);
+        btnAct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActActionPerformed(evt);
+            }
+        });
 
         btnCons.setText("Consultar");
         btnCons.setEnabled(false);
@@ -159,6 +165,13 @@ public class Client extends javax.swing.JFrame {
 
         jLabel10.setText("Email:");
 
+        btnBusc.setText("Buscar");
+        btnBusc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -195,7 +208,10 @@ public class Client extends javax.swing.JFrame {
                                 .addComponent(cajaPref)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAdd, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btnBusc)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnAdd))
                             .addComponent(btnElim, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnCons, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnLimp, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -235,7 +251,8 @@ public class Client extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(cajaClientNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAdd))
+                    .addComponent(btnAdd)
+                    .addComponent(btnBusc))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -358,6 +375,26 @@ public class Client extends javax.swing.JFrame {
     private void tablaClientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaClientMouseClicked
         obtenerRegistro();
     }//GEN-LAST:event_tablaClientMouseClicked
+
+    private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
+        ClientDAO cDAO = new ClientDAO();
+        
+        String maxR = cajaMaxR.getText();
+        int maxRent = Integer.parseInt(maxR);
+        ClientM c = new ClientM(cajaClientNo.getText(), cajafName.getText(), cajalName.getText(), cajaTelNo.getText(), cajaPref.getText(), maxRent, cajaEmail.getText());
+        
+        if(cDAO.modificarClient(c)){
+            actualizarTabla();
+            reestablecer(cajaClientNo, cajaEmail, cajaMaxR, cajaPref, cajaTelNo, cajafName, cajalName);
+        }else{
+            actualizarTabla();
+            reestablecer(cajaClientNo, cajaEmail, cajaMaxR, cajaPref, cajaTelNo, cajafName, cajalName);
+        }
+    }//GEN-LAST:event_btnActActionPerformed
+
+    private void btnBuscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscActionPerformed
+        actualizarTabla2();
+    }//GEN-LAST:event_btnBuscActionPerformed
     public void reestablecer(Component...componentes){
         for(Component Component : componentes){
             if(Component instanceof JTextField){
@@ -453,6 +490,7 @@ public class Client extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAct;
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnBusc;
     private javax.swing.JButton btnCons;
     private javax.swing.JButton btnElim;
     private javax.swing.JButton btnLimp;
