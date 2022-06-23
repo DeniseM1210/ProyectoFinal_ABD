@@ -5,6 +5,7 @@
 package vista;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -26,6 +27,8 @@ public class Grafica extends javax.swing.JFrame {
     public Grafica() {
         initComponents();
         actualizarTabla();
+        this.setLocationRelativeTo(null);
+        this.getContentPane().setBackground(Color.PINK);
     }
 
     /**

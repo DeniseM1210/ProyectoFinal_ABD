@@ -4,6 +4,7 @@
  */
 package vista;
 
+import java.awt.Color;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,6 +21,8 @@ public class HistorialEliminacion extends javax.swing.JFrame {
     public HistorialEliminacion() {
         initComponents();
         actualizarTabla();
+        this.setLocationRelativeTo(null);
+        this.getContentPane().setBackground(Color.PINK);
     }
 
     /**
@@ -97,9 +100,9 @@ public class HistorialEliminacion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegActionPerformed
-        ventanaPrincipal vp = new ventanaPrincipal();
+        Sucursal s = new Sucursal();
         this.setVisible(false);
-        vp.setVisible(true);
+        s.setVisible(true);
     }//GEN-LAST:event_btnRegActionPerformed
 
     public void actualizarTabla(){

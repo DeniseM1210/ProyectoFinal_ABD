@@ -37,6 +37,7 @@ public class Login extends javax.swing.JFrame {
         btnIniciar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 204, 204));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1425553.png"))); // NOI18N
 
@@ -109,12 +110,14 @@ public class Login extends javax.swing.JFrame {
             }
         });
             setVisible(false); 
+        }else if(cajaUsu.getText() != "Denise" && cajaPass.getText() != "hanji"){
+            JOptionPane.showMessageDialog(null, "Datos incorrectos, intente de nuevo");
         }
         if(cajaUsu.getText().equals("") || cajaPass.getText().equals("")){
             JOptionPane.showMessageDialog(null, "ERROR! Faltan datos");
-        }else{
-            JOptionPane.showMessageDialog(null, "Datos incorrectos, intente de nuevo");
         }
+        
+        
     }//GEN-LAST:event_btnIniciarActionPerformed
 
     /**

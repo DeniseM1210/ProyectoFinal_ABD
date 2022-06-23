@@ -65,6 +65,7 @@ public class Sucursal extends javax.swing.JFrame {
         btnHist = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 160, 155));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
         jLabel1.setText("Sucursal");
@@ -103,6 +104,8 @@ public class Sucursal extends javax.swing.JFrame {
 
         btnAdd.setText("Agregar");
         btnAdd.setEnabled(false);
+        btnAdd.setMaximumSize(new java.awt.Dimension(45, 35));
+        btnAdd.setMinimumSize(new java.awt.Dimension(45, 35));
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
@@ -192,9 +195,9 @@ public class Sucursal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
@@ -227,19 +230,19 @@ public class Sucursal extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnElim, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnAct, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnCons, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnAdd, javax.swing.GroupLayout.Alignment.TRAILING)))))
-                    .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnElim, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnAct, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnCons, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnLimp)
+                            .addComponent(btnLimp, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnHist)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnReg)))))
+                                .addComponent(btnHist, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnReg, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -258,7 +261,7 @@ public class Sucursal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(cajaBranch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAdd))
+                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -272,17 +275,17 @@ public class Sucursal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(cajaCP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCons))
+                    .addComponent(btnCons)
+                    .addComponent(cajaCP, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnLimp, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnLimp)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnReg)
-                    .addComponent(btnHist))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnHist, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnReg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -350,6 +353,7 @@ public class Sucursal extends javax.swing.JFrame {
 
     private void btnLimpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpActionPerformed
         reestablecer(cajaBranch, cajaCP, cajaCalle, cajaCiud);
+        actualizarTabla();
     }//GEN-LAST:event_btnLimpActionPerformed
 
     private void btnElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimActionPerformed
@@ -402,46 +406,46 @@ public class Sucursal extends javax.swing.JFrame {
                     }else{
                         op = 1;
                     }
-                    cajaBranch.setEnabled(true);
-                    cajaCalle.setEnabled(false);
-                    cajaCiud.setEnabled(false);
-                    cajaCP.setEnabled(false);
+                    //cajaBranch.setEnabled(true);
+                    //cajaCalle.setEnabled(false);
+                    //cajaCiud.setEnabled(false);
+                    //cajaCP.setEnabled(false);
                 }else if(comboFiltro.getSelectedIndex() == 2){
                     if(cajaCalle.getText().isEmpty()){
                         op = 0;
                     }else{
                         op = 2;
                     }
-                    cajaBranch.setEnabled(false);
-                    cajaCalle.setEnabled(true);
-                    cajaCiud.setEnabled(false);
-                    cajaCP.setEnabled(false);
+                    //cajaBranch.setEnabled(false);
+                    //cajaCalle.setEnabled(true);
+                    //cajaCiud.setEnabled(false);
+                    //cajaCP.setEnabled(false);
                 }else if(comboFiltro.getSelectedIndex() == 3){
                     if(cajaCiud.getText().isEmpty()){
                         op = 0;
                     }else{
                         op = 3;
                     }
-                    cajaBranch.setEnabled(false);
-                    cajaCalle.setEnabled(false);
-                    cajaCiud.setEnabled(true);
-                    cajaCP.setEnabled(false);
+                    //cajaBranch.setEnabled(false);
+                    //cajaCalle.setEnabled(false);
+                    //cajaCiud.setEnabled(true);
+                    //cajaCP.setEnabled(false);
                 }else if(comboFiltro.getSelectedIndex() == 4){
                     if(cajaCP.getText().isEmpty()){
                         op = 0;
                     }else{
                         op = 4;
                     }
-                    cajaBranch.setEnabled(false);
-                    cajaCalle.setEnabled(false);
-                    cajaCiud.setEnabled(false);
-                    cajaCP.setEnabled(true);
+                    //cajaBranch.setEnabled(false);
+                    //cajaCalle.setEnabled(false);
+                    //cajaCiud.setEnabled(false);
+                    //cajaCP.setEnabled(true);
                 }else if(comboFiltro.getSelectedIndex() == 0){
                     op = 0;
-                    cajaBranch.setEnabled(false);
-                    cajaCalle.setEnabled(false);
-                    cajaCiud.setEnabled(false);
-                    cajaCP.setEnabled(false);
+                    //cajaBranch.setEnabled(false);
+                    //cajaCalle.setEnabled(false);
+                    //cajaCiud.setEnabled(false);
+                    //cajaCP.setEnabled(false);
                 }else if(comboFiltro.getSelectedIndex() == 5){
                     op = 5;
                     cajaBranch.setEnabled(true);

@@ -35,68 +35,99 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+
+        jLabel4.setFont(new java.awt.Font("Segoe Script", 1, 36)); // NOI18N
+        jLabel4.setText("Dreamhome");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(565, 360));
-        setMinimumSize(new java.awt.Dimension(565, 360));
+        setMaximumSize(new java.awt.Dimension(565, 400));
+        setMinimumSize(new java.awt.Dimension(565, 400));
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 36)); // NOI18N
         jLabel1.setText("Bienvenido a");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(10, 10, 380, 42);
+        jLabel1.setBounds(80, 60, 380, 42);
 
+        jButton1.setBackground(new java.awt.Color(210, 168, 168));
+        jButton1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jButton1.setText("Cliente");
+        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(100, 150, 80, 23);
+        jButton1.setBounds(50, 190, 80, 25);
 
+        jButton2.setBackground(new java.awt.Color(210, 168, 168));
+        jButton2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jButton2.setText("Sucursal");
+        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(200, 150, 90, 23);
+        jButton2.setBounds(160, 190, 90, 25);
 
+        jButton3.setBackground(new java.awt.Color(210, 168, 168));
+        jButton3.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jButton3.setText("Private Owner");
+        jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(310, 150, 120, 23);
+        jButton3.setBounds(270, 190, 140, 25);
 
+        jButton4.setBackground(new java.awt.Color(210, 168, 168));
+        jButton4.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jButton4.setText("Gráfica");
+        jButton4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton4.setMaximumSize(new java.awt.Dimension(131, 27));
+        jButton4.setMinimumSize(new java.awt.Dimension(131, 27));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(450, 150, 90, 23);
+        jButton4.setBounds(430, 190, 90, 25);
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe Script", 1, 36)); // NOI18N
         jLabel2.setText("Dreamhome");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(250, 10, 380, 40);
+        jLabel2.setBounds(280, 100, 380, 40);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo3.jpg"))); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe Script", 1, 36)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 102, 102));
+        jLabel6.setText("Dreamhome");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(280, 110, 260, 30);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/dh.jpg"))); // NOI18N
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(0, -40, 550, 380);
+        jLabel3.setBounds(0, 0, 564, 360);
+
+        jLabel5.setFont(new java.awt.Font("Segoe Script", 1, 36)); // NOI18N
+        jLabel5.setText("Dreamhome");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(280, 100, 380, 40);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -168,5 +199,8 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
 }

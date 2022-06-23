@@ -228,40 +228,6 @@ public class Client extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cajaClientNo, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cajafName))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cajalName))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cajaMaxR))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cajaTelNo))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cajaPref)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAdd, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnElim, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnCons, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnLimp, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnReg, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnAct, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(53, 53, 53)
                                 .addComponent(jLabel8)
@@ -275,7 +241,42 @@ public class Client extends javax.swing.JFrame {
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(cajaEmail)
-                                .addGap(202, 202, 202)))
+                                .addGap(202, 202, 202))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cajaClientNo, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cajafName))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cajalName))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cajaMaxR))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cajaTelNo))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cajaPref)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnCons, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnLimp, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnReg, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(btnAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnElim, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnAct, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -399,6 +400,7 @@ public class Client extends javax.swing.JFrame {
 
     private void btnLimpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpActionPerformed
         reestablecer(cajaClientNo, cajaEmail, cajaMaxR, cajaPref, cajaTelNo, cajafName, cajalName);
+        actualizarTabla();
     }//GEN-LAST:event_btnLimpActionPerformed
 
     private void btnElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimActionPerformed
@@ -455,100 +457,100 @@ public class Client extends javax.swing.JFrame {
                     }else{
                         op = 1;
                     }
-                    cajaClientNo.setEnabled(true);
-                    cajafName.setEnabled(false);
-                    cajalName.setEnabled(false);
-                    cajaTelNo.setEnabled(false);
-                    cajaPref.setEnabled(false);
-                    cajaMaxR.setEnabled(false);
-                    cajaEmail.setEnabled(false);
+                    //cajaClientNo.setEnabled(true);
+                    //cajafName.setEnabled(false);
+                    //cajalName.setEnabled(false);
+                    //cajaTelNo.setEnabled(false);
+                    //cajaPref.setEnabled(false);
+                    //cajaMaxR.setEnabled(false);
+                    //cajaEmail.setEnabled(false);
                 }else if(comboFiltro.getSelectedIndex() == 2){
                     if(cajafName.getText().isEmpty()){
                         op = 0;
                     }else{
                         op = 2;
                     }
-                    cajaClientNo.setEnabled(false);
-                    cajafName.setEnabled(true);
-                    cajalName.setEnabled(false);
-                    cajaTelNo.setEnabled(false);
-                    cajaPref.setEnabled(false);
-                    cajaMaxR.setEnabled(false);
-                    cajaEmail.setEnabled(false);
+                    //cajaClientNo.setEnabled(false);
+                    //cajafName.setEnabled(true);
+                    //cajalName.setEnabled(false);
+                    //cajaTelNo.setEnabled(false);
+                    //cajaPref.setEnabled(false);
+                    //cajaMaxR.setEnabled(false);
+                    //cajaEmail.setEnabled(false);
                 }else if(comboFiltro.getSelectedIndex() == 3){
                     if(cajalName.getText().isEmpty()){
                         op = 0;
                     }else{
                         op = 3;
                     }
-                    cajaClientNo.setEnabled(false);
-                    cajafName.setEnabled(false);
-                    cajalName.setEnabled(true);
-                    cajaTelNo.setEnabled(false);
-                    cajaPref.setEnabled(false);
-                    cajaMaxR.setEnabled(false);
-                    cajaEmail.setEnabled(false);
+                    //cajaClientNo.setEnabled(false);
+                    //cajafName.setEnabled(false);
+                    //cajalName.setEnabled(true);
+                    //cajaTelNo.setEnabled(false);
+                    //cajaPref.setEnabled(false);
+                    //cajaMaxR.setEnabled(false);
+                    //cajaEmail.setEnabled(false);
                 }else if(comboFiltro.getSelectedIndex() == 4){
                     if(cajaTelNo.getText().isEmpty()){
                         op = 0;
                     }else{
                         op = 4;
                     }
-                    cajaClientNo.setEnabled(false);
-                    cajafName.setEnabled(false);
-                    cajalName.setEnabled(false);
-                    cajaTelNo.setEnabled(true);
-                    cajaPref.setEnabled(false);
-                    cajaMaxR.setEnabled(false);
-                    cajaEmail.setEnabled(false);
+                    //cajaClientNo.setEnabled(false);
+                    //cajafName.setEnabled(false);
+                    //cajalName.setEnabled(false);
+                    //cajaTelNo.setEnabled(true);
+                    //cajaPref.setEnabled(false);
+                    //cajaMaxR.setEnabled(false);
+                    //cajaEmail.setEnabled(false);
                 }else if(comboFiltro.getSelectedIndex() == 5){
                     if(cajaPref.getText().isEmpty()){
                         op = 0;
                     }else{
                         op = 5;
                     }
-                    cajaClientNo.setEnabled(false);
-                    cajafName.setEnabled(false);
-                    cajalName.setEnabled(false);
-                    cajaTelNo.setEnabled(false);
-                    cajaPref.setEnabled(true);
-                    cajaMaxR.setEnabled(false);
-                    cajaEmail.setEnabled(false);
+                    //cajaClientNo.setEnabled(false);
+                    //cajafName.setEnabled(false);
+                    //cajalName.setEnabled(false);
+                    //cajaTelNo.setEnabled(false);
+                    //cajaPref.setEnabled(true);
+                    //cajaMaxR.setEnabled(false);
+                    //cajaEmail.setEnabled(false);
                 }else if(comboFiltro.getSelectedIndex() == 6){
                     if(cajaMaxR.getText().isEmpty()){
                         op = 0;
                     }else{
                         op = 6;
                     }
-                    cajaClientNo.setEnabled(false);
-                    cajafName.setEnabled(false);
-                    cajalName.setEnabled(false);
-                    cajaTelNo.setEnabled(false);
-                    cajaPref.setEnabled(false);
-                    cajaMaxR.setEnabled(true);
-                    cajaEmail.setEnabled(false);
+                    //cajaClientNo.setEnabled(false);
+                    //cajafName.setEnabled(false);
+                    //cajalName.setEnabled(false);
+                    //cajaTelNo.setEnabled(false);
+                    //cajaPref.setEnabled(false);
+                    //cajaMaxR.setEnabled(true);
+                    //cajaEmail.setEnabled(false);
                 }else if(comboFiltro.getSelectedIndex() == 7){
                     if(cajaEmail.getText().isEmpty()){
                         op = 0;
                     }else{
                         op = 7;
                     }
-                    cajaClientNo.setEnabled(false);
-                    cajafName.setEnabled(false);
-                    cajalName.setEnabled(false);
-                    cajaTelNo.setEnabled(false);
-                    cajaPref.setEnabled(false);
-                    cajaMaxR.setEnabled(false);
-                    cajaEmail.setEnabled(true);
+                    //cajaClientNo.setEnabled(false);
+                    //cajafName.setEnabled(false);
+                    //cajalName.setEnabled(false);
+                    //cajaTelNo.setEnabled(false);
+                    //cajaPref.setEnabled(false);
+                    //cajaMaxR.setEnabled(false);
+                    //cajaEmail.setEnabled(true);
                 }else if(comboFiltro.getSelectedIndex() == 0){
                     op = 0;
-                    cajaClientNo.setEnabled(false);
-                    cajafName.setEnabled(false);
-                    cajalName.setEnabled(false);
-                    cajaTelNo.setEnabled(false);
-                    cajaPref.setEnabled(false);
-                    cajaMaxR.setEnabled(false);
-                    cajaEmail.setEnabled(false);
+                    //cajaClientNo.setEnabled(false);
+                    //cajafName.setEnabled(false);
+                    //cajalName.setEnabled(false);
+                    //cajaTelNo.setEnabled(false);
+                    //cajaPref.setEnabled(false);
+                    //cajaMaxR.setEnabled(false);
+                    //cajaEmail.setEnabled(false);
                 }else if(comboFiltro.getSelectedIndex() == 8){
                     op = 8;
                     cajaClientNo.setEnabled(true);

@@ -378,6 +378,7 @@ public class PrivateOwner extends javax.swing.JFrame {
 
     private void btnLimpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpActionPerformed
         reestablecer(cajaContra, cajaDir, cajaEmail, cajaFn, cajaLn, cajaNumT, cajaOwner);
+        actualizarTabla();
     }//GEN-LAST:event_btnLimpActionPerformed
 
     private void btnElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimActionPerformed
@@ -428,100 +429,100 @@ public class PrivateOwner extends javax.swing.JFrame {
                     }else{
                         op = 1;
                     }
-                    cajaOwner.setEnabled(true);
-                    cajaFn.setEnabled(false);
-                    cajaLn.setEnabled(false);
-                    cajaDir.setEnabled(false);
-                    cajaNumT.setEnabled(false);
-                    cajaEmail.setEnabled(false);
-                    cajaContra.setEnabled(false);
+                    //cajaOwner.setEnabled(true);
+                    //cajaFn.setEnabled(false);
+                    //cajaLn.setEnabled(false);
+                    //cajaDir.setEnabled(false);
+                    //cajaNumT.setEnabled(false);
+                    //cajaEmail.setEnabled(false);
+                    //cajaContra.setEnabled(false);
                 }else if(comboFiltro.getSelectedIndex() == 2){
                     if(cajaFn.getText().isEmpty()){
                         op = 0;
                     }else{
                         op = 2;
                     }
-                    cajaOwner.setEnabled(false);
-                    cajaFn.setEnabled(true);
-                    cajaLn.setEnabled(false);
-                    cajaDir.setEnabled(false);
-                    cajaNumT.setEnabled(false);
-                    cajaEmail.setEnabled(false);
-                    cajaContra.setEnabled(false);
+                    //cajaOwner.setEnabled(false);
+                    //cajaFn.setEnabled(true);
+                    //cajaLn.setEnabled(false);
+                    //cajaDir.setEnabled(false);
+                    //cajaNumT.setEnabled(false);
+                    //cajaEmail.setEnabled(false);
+                    //cajaContra.setEnabled(false);
                 }else if(comboFiltro.getSelectedIndex() == 3){
                     if(cajaLn.getText().isEmpty()){
                         op = 0;
                     }else{
                         op = 3;
                     }
-                    cajaOwner.setEnabled(false);
-                    cajaFn.setEnabled(false);
-                    cajaLn.setEnabled(true);
-                    cajaDir.setEnabled(false);
-                    cajaNumT.setEnabled(false);
-                    cajaEmail.setEnabled(false);
-                    cajaContra.setEnabled(false);
+                    //cajaOwner.setEnabled(false);
+                    //cajaFn.setEnabled(false);
+                    //cajaLn.setEnabled(true);
+                    //cajaDir.setEnabled(false);
+                    //cajaNumT.setEnabled(false);
+                    //cajaEmail.setEnabled(false);
+                    //cajaContra.setEnabled(false);
                 }else if(comboFiltro.getSelectedIndex() == 4){
                     if(cajaDir.getText().isEmpty()){
                         op = 0;
                     }else{
                         op = 4;
                     }
-                    cajaOwner.setEnabled(false);
-                    cajaFn.setEnabled(false);
-                    cajaLn.setEnabled(false);
-                    cajaDir.setEnabled(true);
-                    cajaNumT.setEnabled(false);
-                    cajaEmail.setEnabled(false);
-                    cajaContra.setEnabled(false);
+                    //cajaOwner.setEnabled(false);
+                    //cajaFn.setEnabled(false);
+                    //cajaLn.setEnabled(false);
+                    //cajaDir.setEnabled(true);
+                    //cajaNumT.setEnabled(false);
+                    //cajaEmail.setEnabled(false);
+                    //cajaContra.setEnabled(false);
                 }else if(comboFiltro.getSelectedIndex() == 5){
                     if(cajaNumT.getText().isEmpty()){
                         op = 0;
                     }else{
                         op = 5;
                     }
-                    cajaOwner.setEnabled(false);
-                    cajaFn.setEnabled(false);
-                    cajaLn.setEnabled(false);
-                    cajaDir.setEnabled(false);
-                    cajaNumT.setEnabled(true);
-                    cajaEmail.setEnabled(false);
-                    cajaContra.setEnabled(false);
+                    //cajaOwner.setEnabled(false);
+                    //cajaFn.setEnabled(false);
+                    //cajaLn.setEnabled(false);
+                    //cajaDir.setEnabled(false);
+                    //cajaNumT.setEnabled(true);
+                    //cajaEmail.setEnabled(false);
+                    //cajaContra.setEnabled(false);
                 }else if(comboFiltro.getSelectedIndex() == 6){
                     if(cajaEmail.getText().isEmpty()){
                         op = 0;
                     }else{
                         op = 6;
                     }
-                    cajaOwner.setEnabled(false);
-                    cajaFn.setEnabled(false);
-                    cajaLn.setEnabled(false);
-                    cajaDir.setEnabled(false);
-                    cajaNumT.setEnabled(false);
-                    cajaEmail.setEnabled(true);
-                    cajaContra.setEnabled(false);
+                    //cajaOwner.setEnabled(false);
+                    //cajaFn.setEnabled(false);
+                    //cajaLn.setEnabled(false);
+                    //cajaDir.setEnabled(false);
+                    //cajaNumT.setEnabled(false);
+                    //cajaEmail.setEnabled(true);
+                    //cajaContra.setEnabled(false);
                 }else if(comboFiltro.getSelectedIndex() == 7){
                     if(cajaContra.getText().isEmpty()){
                         op = 0;
                     }else{
                         op = 7;
                     }
-                    cajaOwner.setEnabled(false);
-                    cajaFn.setEnabled(false);
-                    cajaLn.setEnabled(false);
-                    cajaDir.setEnabled(false);
-                    cajaNumT.setEnabled(false);
-                    cajaEmail.setEnabled(false);
-                    cajaContra.setEnabled(true);
+                    //cajaOwner.setEnabled(false);
+                    //cajaFn.setEnabled(false);
+                    //cajaLn.setEnabled(false);
+                    //cajaDir.setEnabled(false);
+                    //cajaNumT.setEnabled(false);
+                    //cajaEmail.setEnabled(false);
+                    //cajaContra.setEnabled(true);
                 }else if(comboFiltro.getSelectedIndex() == 0){
                     op = 0;
-                    cajaOwner.setEnabled(false);
-                    cajaFn.setEnabled(false);
-                    cajaLn.setEnabled(false);
-                    cajaDir.setEnabled(false);
-                    cajaNumT.setEnabled(false);
-                    cajaEmail.setEnabled(false);
-                    cajaContra.setEnabled(false);
+                    //cajaOwner.setEnabled(false);
+                    //cajaFn.setEnabled(false);
+                    //cajaLn.setEnabled(false);
+                    //cajaDir.setEnabled(false);
+                    //cajaNumT.setEnabled(false);
+                    //cajaEmail.setEnabled(false);
+                    //cajaContra.setEnabled(false);
                 }else if(comboFiltro.getSelectedIndex() == 8){
                     op = 8;
                     cajaOwner.setEnabled(true);
