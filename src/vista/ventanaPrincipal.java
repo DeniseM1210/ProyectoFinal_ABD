@@ -43,6 +43,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        Salir = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
@@ -120,6 +121,18 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         getContentPane().add(jLabel6);
         jLabel6.setBounds(280, 110, 260, 30);
 
+        Salir.setBackground(new java.awt.Color(210, 168, 168));
+        Salir.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        Salir.setText("Salir");
+        Salir.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Salir);
+        Salir.setBounds(50, 290, 73, 23);
+
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/dh.jpg"))); // NOI18N
         getContentPane().add(jLabel3);
         jLabel3.setBounds(0, 0, 564, 360);
@@ -155,6 +168,10 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         this.setVisible(false);
         g.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_SalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,6 +209,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Salir;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
