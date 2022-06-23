@@ -69,6 +69,7 @@ public class PrivateOwner extends javax.swing.JFrame {
         cajaContra = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Private Owner");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
         jLabel1.setText("Private Owner");

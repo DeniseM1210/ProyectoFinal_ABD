@@ -40,6 +40,7 @@ public class HistorialEliminacion extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Historial Eliminación");
 
         tablaCambios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

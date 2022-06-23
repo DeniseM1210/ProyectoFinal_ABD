@@ -47,6 +47,7 @@ public class Grafica extends javax.swing.JFrame {
         panelGraf = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Gráfica");
 
         tablaGrafica.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

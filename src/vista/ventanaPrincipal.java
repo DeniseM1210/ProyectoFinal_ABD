@@ -51,6 +51,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jLabel4.setText("Dreamhome");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Ventana Principal");
         setMaximumSize(new java.awt.Dimension(565, 400));
         setMinimumSize(new java.awt.Dimension(565, 400));
         getContentPane().setLayout(null);
