@@ -62,6 +62,7 @@ public class Sucursal extends javax.swing.JFrame {
         comboFiltro = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaBranch = new javax.swing.JTable();
+        btnHist = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -178,6 +179,13 @@ public class Sucursal extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tablaBranch);
 
+        btnHist.setText("Historial Eliminación");
+        btnHist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHistActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -226,9 +234,12 @@ public class Sucursal extends javax.swing.JFrame {
                                     .addComponent(btnAdd, javax.swing.GroupLayout.Alignment.TRAILING)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnLimp, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnReg, javax.swing.GroupLayout.Alignment.TRAILING))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnLimp)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnHist)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnReg)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -266,7 +277,9 @@ public class Sucursal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLimp)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnReg)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnReg)
+                    .addComponent(btnHist))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -471,6 +484,12 @@ public class Sucursal extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_cajaCPKeyTyped
+
+    private void btnHistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistActionPerformed
+        HistorialCambios hc = new HistorialCambios();
+        this.setVisible(false);
+        hc.setVisible(true);
+    }//GEN-LAST:event_btnHistActionPerformed
     public void reestablecer(Component...componentes){
         for(Component Component : componentes){
             if(Component instanceof JTextField){
@@ -596,6 +615,7 @@ public class Sucursal extends javax.swing.JFrame {
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnCons;
     private javax.swing.JButton btnElim;
+    private javax.swing.JButton btnHist;
     private javax.swing.JButton btnLimp;
     private javax.swing.JButton btnReg;
     private javax.swing.JTextField cajaBranch;
