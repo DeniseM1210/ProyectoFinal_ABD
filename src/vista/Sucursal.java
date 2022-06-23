@@ -486,7 +486,7 @@ public class Sucursal extends javax.swing.JFrame {
     }//GEN-LAST:event_cajaCPKeyTyped
 
     private void btnHistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistActionPerformed
-        HistorialCambios hc = new HistorialCambios();
+        HistorialEliminacion hc = new HistorialEliminacion();
         this.setVisible(false);
         hc.setVisible(true);
     }//GEN-LAST:event_btnHistActionPerformed
