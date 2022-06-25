@@ -4,7 +4,12 @@
  */
 package vista;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -15,6 +20,8 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    JTable tabla = new JTable();
+    public static boolean bandera;
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null); 
@@ -111,21 +118,26 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
-        if(cajaUsu.getText().equals("Denise") && cajaPass.getText().equals("hanji")){
-           java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ventanaPrincipal().setVisible(true);
+        String usu = cajaUsu.getText();
+        String contra = cajaPass.getText();
+        if(usu.equals("") || contra.equals("")){
+            JOptionPane.showMessageDialog(null, "Faltan datos!!");
+        }else{
+            actualizarTabla("SELECT * FROM usuarios WHERE nombreUsu = '" + usu + "' AND contraseña = '" + contra + "';");
+            int count = tabla.getRowCount();
+            if(count == 0){
+                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos!!");
+                cajaUsu.setText("");
+                cajaPass.setText("");
+            }else{
+                java.awt.EventQueue.invokeLater(new Runnable() {
+                    public void run() {
+                        new ventanaPrincipal().setVisible(true);
+                    }
+                });
+                this.setVisible(false);
             }
-        });
-            setVisible(false); 
-        }else if(cajaUsu.getText() != "Denise" && cajaPass.getText() != "hanji"){
-            JOptionPane.showMessageDialog(null, "Datos incorrectos, intente de nuevo");
         }
-        if(cajaUsu.getText().equals("") || cajaPass.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "ERROR! Faltan datos");
-        }
-        
-        
     }//GEN-LAST:event_btnIniciarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -133,6 +145,24 @@ public class Login extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnSalirActionPerformed
 
+    public void actualizarTabla(String sql){
+        String controlador = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+        String url = "jdbc:sqlserver://localhost:1433;databaseName=dreamhome;"
+                    + "user=sa;"
+                    + "password=hanji123;"
+                    + "encrypt=true;trustServerCertificate=true;";
+        String consulta = sql;
+        
+        ResultSetTableModel modeloDatos = null;
+        try{
+            modeloDatos = new ResultSetTableModel(controlador, url, consulta);
+        }catch(SQLException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(ClassNotFoundException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tabla.setModel(modeloDatos);
+    }
     /**
      * @param args the command line arguments
      */

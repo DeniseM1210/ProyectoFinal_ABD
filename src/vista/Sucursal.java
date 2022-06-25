@@ -7,11 +7,15 @@ package vista;
 import controlador.BranchDAO;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import modelo.BranchM;
 
 /**
@@ -24,6 +28,8 @@ public class Sucursal extends javax.swing.JFrame {
      * Creates new form Sucursal
      */
     byte op = 0;
+    private TableRowSorter trsFiltro;
+    private DefaultTableModel tablaDatos;
     public Sucursal() {
         initComponents();
         this.getContentPane().setBackground(Color.PINK);
@@ -80,24 +86,36 @@ public class Sucursal extends javax.swing.JFrame {
         jLabel5.setText("Código Postal:");
 
         cajaBranch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cajaBranchKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 cajaBranchKeyTyped(evt);
             }
         });
 
         cajaCalle.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cajaCalleKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 cajaCalleKeyTyped(evt);
             }
         });
 
         cajaCiud.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cajaCiudKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 cajaCiudKeyTyped(evt);
             }
         });
 
         cajaCP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cajaCPKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 cajaCPKeyTyped(evt);
             }
@@ -238,12 +256,12 @@ public class Sucursal extends javax.swing.JFrame {
                                     .addComponent(btnCons, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnLimp, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnHist, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btnHist, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnReg, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(btnReg, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnLimp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -496,6 +514,30 @@ public class Sucursal extends javax.swing.JFrame {
         this.setVisible(false);
         hc.setVisible(true);
     }//GEN-LAST:event_btnHistActionPerformed
+
+    private void cajaBranchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaBranchKeyReleased
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+            buscarPorCampos();
+        }
+    }//GEN-LAST:event_cajaBranchKeyReleased
+
+    private void cajaCalleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaCalleKeyReleased
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+            buscarPorCampos();
+        }
+    }//GEN-LAST:event_cajaCalleKeyReleased
+
+    private void cajaCiudKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaCiudKeyReleased
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+            buscarPorCampos();
+        }
+    }//GEN-LAST:event_cajaCiudKeyReleased
+
+    private void cajaCPKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaCPKeyReleased
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+            buscarPorCampos();
+        }
+    }//GEN-LAST:event_cajaCPKeyReleased
     public void reestablecer(Component...componentes){
         for(Component Component : componentes){
             if(Component instanceof JTextField){
@@ -529,11 +571,12 @@ public class Sucursal extends javax.swing.JFrame {
                     + "user=sa;"
                     + "password=hanji123;"
                     + "encrypt=true;trustServerCertificate=true;";
-        String consulta = "SELECT * FROM branch WHERE branchNo = '" + cajaBranch.getText() + "'";
+        String consulta = "SELECT * FROM branch WHERE branchNo LIKE '" + cajaBranch.getText() + "%'";
         
         ResultSetTableModel modeloDatos = null;
         try{
             modeloDatos = new ResultSetTableModel(controlador, url, consulta);
+            System.out.println(modeloDatos);
         }catch(SQLException ex){
             Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
         }catch(ClassNotFoundException ex){
@@ -573,6 +616,40 @@ public class Sucursal extends javax.swing.JFrame {
             Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
         }
         tablaBranch.setModel(modeloDatos);
+    }
+    
+    public void actualizarTabla(String sql){
+        String controlador = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+        String url = "jdbc:sqlserver://localhost:1433;databaseName=dreamhome;"
+                    + "user=sa;"
+                    + "password=hanji123;"
+                    + "encrypt=true;trustServerCertificate=true;";
+        String consulta = sql;
+        
+        ResultSetTableModel modeloDatos = null;
+        try{
+            modeloDatos = new ResultSetTableModel(controlador, url, consulta);
+        }catch(SQLException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(ClassNotFoundException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tablaBranch.setModel(modeloDatos);
+    }
+    
+    public void buscarPorCampos(){
+        if(!cajaBranch.getText().isEmpty()){
+            actualizarTabla("SELECT * FROM branch WHERE branchNo LIKE '" + cajaBranch.getText() + "%'");
+        }else if(!cajaCalle.getText().isEmpty()){
+            actualizarTabla("SELECT * FROM branch WHERE street LIKE '" + cajaCalle.getText() + "%'");
+        }else if(!cajaCiud.getText().isEmpty()){
+            actualizarTabla("select * from branch where city like '" + cajaCiud.getText() + "%'");
+        }else if(!cajaCP.getText().isEmpty()){
+            actualizarTabla("select * from branch where postcode like '" + cajaCP.getText() + "%'");
+        }else if(cajaBranch.getText().isEmpty() && cajaCalle.getText().isEmpty() &&
+                cajaCiud.getText().isEmpty() && cajaCP.getText().isEmpty()){
+            actualizarTabla("Select * from branch");
+        }
     }
     
     public void obtenerRegistro(){

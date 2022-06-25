@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -93,6 +94,9 @@ public class Client extends javax.swing.JFrame {
         jLabel7.setText("Max Rent:");
 
         cajaClientNo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cajaClientNoKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 cajaClientNoKeyTyped(evt);
             }
@@ -104,30 +108,45 @@ public class Client extends javax.swing.JFrame {
             }
         });
         cajafName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cajafNameKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 cajafNameKeyTyped(evt);
             }
         });
 
         cajalName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cajalNameKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 cajalNameKeyTyped(evt);
             }
         });
 
         cajaTelNo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cajaTelNoKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 cajaTelNoKeyTyped(evt);
             }
         });
 
         cajaPref.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cajaPrefKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 cajaPrefKeyTyped(evt);
             }
         });
 
         cajaMaxR.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cajaMaxRKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 cajaMaxRKeyTyped(evt);
             }
@@ -217,6 +236,12 @@ public class Client extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tablaClient);
 
         jLabel10.setText("Email:");
+
+        cajaEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cajaEmailKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -611,6 +636,48 @@ public class Client extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_cajaPrefKeyTyped
+
+    private void cajafNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajafNameKeyReleased
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+            buscarPorCampos();
+        }
+    }//GEN-LAST:event_cajafNameKeyReleased
+
+    private void cajaClientNoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaClientNoKeyReleased
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+            buscarPorCampos();
+        }
+    }//GEN-LAST:event_cajaClientNoKeyReleased
+
+    private void cajalNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajalNameKeyReleased
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+            buscarPorCampos();
+        }
+    }//GEN-LAST:event_cajalNameKeyReleased
+
+    private void cajaTelNoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaTelNoKeyReleased
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+            buscarPorCampos();
+        }
+    }//GEN-LAST:event_cajaTelNoKeyReleased
+
+    private void cajaPrefKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaPrefKeyReleased
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+            buscarPorCampos();
+        }
+    }//GEN-LAST:event_cajaPrefKeyReleased
+
+    private void cajaMaxRKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaMaxRKeyReleased
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+            buscarPorCampos();
+        }
+    }//GEN-LAST:event_cajaMaxRKeyReleased
+
+    private void cajaEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaEmailKeyReleased
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+            buscarPorCampos();
+        }
+    }//GEN-LAST:event_cajaEmailKeyReleased
     public void reestablecer(Component...componentes){
         for(Component Component : componentes){
             if(Component instanceof JTextField){
@@ -703,6 +770,46 @@ public class Client extends javax.swing.JFrame {
             Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
         }
         tablaClient.setModel(modeloDatos);
+    }
+    
+    public void actualizarTabla(String sql){
+        String controlador = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+        String url = "jdbc:sqlserver://localhost:1433;databaseName=dreamhome;"
+                    + "user=sa;"
+                    + "password=hanji123;"
+                    + "encrypt=true;trustServerCertificate=true;";
+        String consulta = sql;
+        
+        ResultSetTableModel modeloDatos = null;
+        try{
+            modeloDatos = new ResultSetTableModel(controlador, url, consulta);
+        }catch(SQLException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(ClassNotFoundException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tablaClient.setModel(modeloDatos);
+    }
+    
+    public void buscarPorCampos(){
+        if(!cajafName.getText().isEmpty()){
+            actualizarTabla("SELECT * FROM client WHERE fName LIKE '" + cajafName.getText() + "%'");
+        }else if(!cajaClientNo.getText().isEmpty() ){
+            actualizarTabla("SELECT * FROM client WHERE clientNo LIKE '" + cajaClientNo.getText() + "%'");
+        }else if(!cajalName.getText().isEmpty() ){
+            actualizarTabla("SELECT * FROM client WHERE lName LIKE '" + cajalName.getText() + "%'");
+        }else if(!cajaTelNo.getText().isEmpty() ){
+            actualizarTabla("SELECT * FROM client WHERE telNo LIKE '" + cajaTelNo.getText() + "%'");
+        }else if(!cajaPref.getText().isEmpty() ){
+            actualizarTabla("SELECT * FROM client WHERE prefType LIKE '" + cajaPref.getText() + "%'");
+        }else if(!cajaMaxR.getText().isEmpty() ){
+            actualizarTabla("SELECT * FROM client WHERE + Cast(maxRent as Varchar(20)) LIKE '" + cajaMaxR.getText() + "%'");
+        }else if(!cajaEmail.getText().isEmpty() ){
+            actualizarTabla("SELECT * FROM client WHERE email LIKE '" + cajaEmail.getText() + "%'");
+        }else if(cajafName.getText().isEmpty() && cajaClientNo.getText().isEmpty() && cajalName.getText().isEmpty() &&
+                cajaTelNo.getText().isEmpty() && cajaPref.getText().isEmpty() && cajaMaxR.getText().isEmpty() && cajaEmail.getText().isEmpty() ){
+            actualizarTabla("SELECT * FROM client");
+        }
     }
     
     public void obtenerRegistro(){

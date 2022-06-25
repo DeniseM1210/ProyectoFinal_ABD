@@ -4,7 +4,9 @@
  */
 package proyectofinal_abd_abcc;
 
+import vista.Client;
 import vista.Login;
+import vista.Sucursal;
 import vista.ventanaPrincipal;
 
 /**
