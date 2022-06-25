@@ -99,6 +99,66 @@ public class PropertyForRent extends javax.swing.JFrame {
 
         jLabel11.setText("Branch No:");
 
+        cajaProp.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cajaPropKeyReleased(evt);
+            }
+        });
+
+        cajaStr.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cajaStrKeyReleased(evt);
+            }
+        });
+
+        cajaCit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cajaCitKeyReleased(evt);
+            }
+        });
+
+        cajaPC.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cajaPCKeyReleased(evt);
+            }
+        });
+
+        cajaTyp.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cajaTypKeyReleased(evt);
+            }
+        });
+
+        cajaRoo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cajaRooKeyReleased(evt);
+            }
+        });
+
+        cajaRent.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cajaRentKeyReleased(evt);
+            }
+        });
+
+        cajaOwner.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cajaOwnerKeyReleased(evt);
+            }
+        });
+
+        cajaStaff.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cajaStaffKeyReleased(evt);
+            }
+        });
+
+        cajaBranch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cajaBranchKeyReleased(evt);
+            }
+        });
+
         jLabel12.setText("Opciones:");
 
         comboOp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Añadir", "Eliminar", "Actualizar", "Consultar" }));
@@ -492,6 +552,66 @@ public class PropertyForRent extends javax.swing.JFrame {
             actualizarTabla3();
         }
     }//GEN-LAST:event_btnConsActionPerformed
+
+    private void cajaPropKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaPropKeyReleased
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+            buscarPorCampos();
+        }
+    }//GEN-LAST:event_cajaPropKeyReleased
+
+    private void cajaStrKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaStrKeyReleased
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+            buscarPorCampos();
+        }
+    }//GEN-LAST:event_cajaStrKeyReleased
+
+    private void cajaCitKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaCitKeyReleased
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+            buscarPorCampos();
+        }
+    }//GEN-LAST:event_cajaCitKeyReleased
+
+    private void cajaPCKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaPCKeyReleased
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+            buscarPorCampos();
+        }
+    }//GEN-LAST:event_cajaPCKeyReleased
+
+    private void cajaTypKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaTypKeyReleased
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+            buscarPorCampos();
+        }
+    }//GEN-LAST:event_cajaTypKeyReleased
+
+    private void cajaRooKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaRooKeyReleased
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+            buscarPorCampos();
+        }
+    }//GEN-LAST:event_cajaRooKeyReleased
+
+    private void cajaRentKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaRentKeyReleased
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+            buscarPorCampos();
+        }
+    }//GEN-LAST:event_cajaRentKeyReleased
+
+    private void cajaOwnerKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaOwnerKeyReleased
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+            buscarPorCampos();
+        }
+    }//GEN-LAST:event_cajaOwnerKeyReleased
+
+    private void cajaStaffKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaStaffKeyReleased
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+            buscarPorCampos();
+        }
+    }//GEN-LAST:event_cajaStaffKeyReleased
+
+    private void cajaBranchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaBranchKeyReleased
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+            buscarPorCampos();
+        }
+    }//GEN-LAST:event_cajaBranchKeyReleased
     public void reestablecer(Component...componentes){
         for(Component Component : componentes){
             if(Component instanceof JTextField){

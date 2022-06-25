@@ -272,24 +272,54 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaProp">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaPropKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaStr">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaStrKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaCit">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaCitKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaPC">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaPCKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaTyp">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaTypKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaRoo">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaRooKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaRent">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaRentKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaOwner">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaOwnerKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaStaff">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaStaffKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaBranch">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaBranchKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel12">
       <Properties>
