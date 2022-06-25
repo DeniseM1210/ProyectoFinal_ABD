@@ -22,7 +22,7 @@ public class ProyectoFinal_ABD_ABCC {
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PropertyForRent().setVisible(true);
+                new ventanaPrincipal().setVisible(true);
             }
         });
     }

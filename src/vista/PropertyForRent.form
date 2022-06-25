@@ -274,51 +274,61 @@
     <Component class="javax.swing.JTextField" name="cajaProp">
       <Events>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaPropKeyReleased"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaPropKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaStr">
       <Events>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaStrKeyReleased"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaStrKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaCit">
       <Events>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaCitKeyReleased"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaCitKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaPC">
       <Events>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaPCKeyReleased"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaPCKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaTyp">
       <Events>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaTypKeyReleased"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaTypKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaRoo">
       <Events>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaRooKeyReleased"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaRooKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaRent">
       <Events>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaRentKeyReleased"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaRentKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaOwner">
       <Events>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaOwnerKeyReleased"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaOwnerKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaStaff">
       <Events>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaStaffKeyReleased"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaStaffKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaBranch">
       <Events>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaBranchKeyReleased"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cajaBranchKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel12">
@@ -413,6 +423,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Limpiar Campos"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimpActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnReg">
       <Properties>
@@ -437,6 +450,9 @@
               </Table>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tablaPfrMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

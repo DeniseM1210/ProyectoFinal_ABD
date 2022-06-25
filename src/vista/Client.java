@@ -689,8 +689,8 @@ public class Client extends javax.swing.JFrame {
     public void actualizarTabla(){
         String controlador = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
         String url = "jdbc:sqlserver://localhost:1433;databaseName=dreamhome;"
-                    + "user=sa;"
-                    + "password=hanji123;"
+                    + "user=denise1;"
+                    + "password=hanji15;"
                     + "encrypt=true;trustServerCertificate=true;";
         String consulta = "SELECT * FROM client";
         
@@ -708,8 +708,8 @@ public class Client extends javax.swing.JFrame {
     public void actualizarTabla2(){
         String controlador = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
         String url = "jdbc:sqlserver://localhost:1433;databaseName=dreamhome;"
-                    + "user=sa;"
-                    + "password=hanji123;"
+                    + "user=denise1;"
+                    + "password=hanji15;"
                     + "encrypt=true;trustServerCertificate=true;";
         String consulta = "SELECT * FROM client WHERE clientNo = '" + cajaClientNo.getText() + "'";
         
@@ -727,8 +727,8 @@ public class Client extends javax.swing.JFrame {
     public void actualizarTabla3(){
         String controlador = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
         String url = "jdbc:sqlserver://localhost:1433;databaseName=dreamhome;"
-                    + "user=sa;"
-                    + "password=hanji123;"
+                    + "user=denise1;"
+                    + "password=hanji15;"
                     + "encrypt=true;trustServerCertificate=true;";
         String consulta = "SELECT * FROM client";
         
@@ -775,8 +775,8 @@ public class Client extends javax.swing.JFrame {
     public void actualizarTabla(String sql){
         String controlador = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
         String url = "jdbc:sqlserver://localhost:1433;databaseName=dreamhome;"
-                    + "user=sa;"
-                    + "password=hanji123;"
+                    + "user=denise1;"
+                    + "password=hanji15;"
                     + "encrypt=true;trustServerCertificate=true;";
         String consulta = sql;
         

@@ -103,11 +103,17 @@ public class PropertyForRent extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 cajaPropKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cajaPropKeyTyped(evt);
+            }
         });
 
         cajaStr.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 cajaStrKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cajaStrKeyTyped(evt);
             }
         });
 
@@ -115,11 +121,17 @@ public class PropertyForRent extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 cajaCitKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cajaCitKeyTyped(evt);
+            }
         });
 
         cajaPC.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 cajaPCKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cajaPCKeyTyped(evt);
             }
         });
 
@@ -127,11 +139,17 @@ public class PropertyForRent extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 cajaTypKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cajaTypKeyTyped(evt);
+            }
         });
 
         cajaRoo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 cajaRooKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cajaRooKeyTyped(evt);
             }
         });
 
@@ -139,11 +157,17 @@ public class PropertyForRent extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 cajaRentKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cajaRentKeyTyped(evt);
+            }
         });
 
         cajaOwner.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 cajaOwnerKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cajaOwnerKeyTyped(evt);
             }
         });
 
@@ -151,11 +175,17 @@ public class PropertyForRent extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 cajaStaffKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cajaStaffKeyTyped(evt);
+            }
         });
 
         cajaBranch.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 cajaBranchKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cajaBranchKeyTyped(evt);
             }
         });
 
@@ -205,6 +235,11 @@ public class PropertyForRent extends javax.swing.JFrame {
         });
 
         btnLimp.setText("Limpiar Campos");
+        btnLimp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpActionPerformed(evt);
+            }
+        });
 
         btnReg.setText("Regresar");
         btnReg.addActionListener(new java.awt.event.ActionListener() {
@@ -224,6 +259,11 @@ public class PropertyForRent extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablaPfr.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaPfrMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablaPfr);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -391,7 +431,8 @@ public class PropertyForRent extends javax.swing.JFrame {
             PropertyForRentM p = new PropertyForRentM(cajaProp.getText(), cajaStr.getText(), cajaCit.getText(), cajaPC.getText(), cajaTyp.getText(), ro, re, cajaOwner.getText(), cajaStaff.getText(), cajaBranch.getText());
             if(pDAO.insertarProperty(p)){
                 actualizarTabla();
-            }else{
+            }else if(pDAO.insertarProperty(p) == false){
+                JOptionPane.showMessageDialog(null, "Error! Campo inexistente");
                 actualizarTabla();
             }
         }
@@ -612,6 +653,93 @@ public class PropertyForRent extends javax.swing.JFrame {
             buscarPorCampos();
         }
     }//GEN-LAST:event_cajaBranchKeyReleased
+
+    private void cajaPropKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaPropKeyTyped
+        char caracter = evt.getKeyChar();
+        if(((caracter < 48) || (caracter > 57)) && (caracter != '\b')
+                && ((caracter < 65) || (caracter > 90))){
+            evt.consume();
+        }
+    }//GEN-LAST:event_cajaPropKeyTyped
+
+    private void cajaStrKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaStrKeyTyped
+        char carac = evt.getKeyChar();
+        if(Character.isLetter(carac) || Character.isSpaceChar(carac) || Character.isDigit(carac)){
+        }else{
+            evt.consume();
+        }
+    }//GEN-LAST:event_cajaStrKeyTyped
+
+    private void cajaCitKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaCitKeyTyped
+        char carac = evt.getKeyChar();
+        if(Character.isLetter(carac)){
+        }else{
+            evt.consume();
+        }
+    }//GEN-LAST:event_cajaCitKeyTyped
+
+    private void cajaPCKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaPCKeyTyped
+        char caracter = evt.getKeyChar();
+        if(((caracter < 48) || (caracter > 57)) && (caracter != '\b')
+                && ((caracter < 65) || (caracter > 90)) && (caracter != 32)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_cajaPCKeyTyped
+
+    private void cajaTypKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaTypKeyTyped
+        char carac = evt.getKeyChar();
+        if(Character.isLetter(carac)){
+        }else{
+            evt.consume();
+        }
+    }//GEN-LAST:event_cajaTypKeyTyped
+
+    private void cajaRooKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaRooKeyTyped
+        char caracter = evt.getKeyChar();
+        if(((caracter < 48) || (caracter > 57)) && (caracter != '\b')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_cajaRooKeyTyped
+
+    private void cajaRentKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaRentKeyTyped
+        char caracter = evt.getKeyChar();
+        if(((caracter < 48) || (caracter > 57)) && (caracter != '\b')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_cajaRentKeyTyped
+
+    private void cajaOwnerKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaOwnerKeyTyped
+        char caracter = evt.getKeyChar();
+        if(((caracter < 48) || (caracter > 57)) && (caracter != '\b')
+                && ((caracter < 65) || (caracter > 90))){
+            evt.consume();
+        }
+    }//GEN-LAST:event_cajaOwnerKeyTyped
+
+    private void cajaStaffKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaStaffKeyTyped
+        char caracter = evt.getKeyChar();
+        if(((caracter < 48) || (caracter > 57)) && (caracter != '\b')
+                && ((caracter < 65) || (caracter > 90))){
+            evt.consume();
+        }
+    }//GEN-LAST:event_cajaStaffKeyTyped
+
+    private void cajaBranchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaBranchKeyTyped
+        char caracter = evt.getKeyChar();
+        if(((caracter < 48) || (caracter > 57)) && (caracter != '\b')
+                && ((caracter < 65) || (caracter > 90))){
+            evt.consume();
+        }
+    }//GEN-LAST:event_cajaBranchKeyTyped
+
+    private void tablaPfrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaPfrMouseClicked
+        obtenerRegistro();
+    }//GEN-LAST:event_tablaPfrMouseClicked
+
+    private void btnLimpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpActionPerformed
+        actualizarTabla();
+        reestablecer(cajaBranch, cajaCit, cajaOwner, cajaPC, cajaProp, cajaRent, cajaRoo, cajaStaff, cajaStr, cajaTyp);
+    }//GEN-LAST:event_btnLimpActionPerformed
     public void reestablecer(Component...componentes){
         for(Component Component : componentes){
             if(Component instanceof JTextField){
@@ -623,8 +751,8 @@ public class PropertyForRent extends javax.swing.JFrame {
     public void actualizarTabla(){
         String controlador = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
         String url = "jdbc:sqlserver://localhost:1433;databaseName=dreamhome;"
-                    + "user=sa;"
-                    + "password=hanji123;"
+                    + "user=denise1;"
+                    + "password=hanji15;"
                     + "encrypt=true;trustServerCertificate=true;";
         String consulta = "SELECT * FROM propertyforrent";
         
@@ -642,8 +770,8 @@ public class PropertyForRent extends javax.swing.JFrame {
     public void actualizarTabla2(){
         String controlador = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
         String url = "jdbc:sqlserver://localhost:1433;databaseName=dreamhome;"
-                    + "user=sa;"
-                    + "password=hanji123;"
+                    + "user=denise1;"
+                    + "password=hanji15;"
                     + "encrypt=true;trustServerCertificate=true;";
         String consulta = "SELECT * FROM propertyforrent WHERE propertyNo = '" + cajaProp.getText() + "'";
         
@@ -661,8 +789,8 @@ public class PropertyForRent extends javax.swing.JFrame {
     public void actualizarTabla3(){
         String controlador = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
         String url = "jdbc:sqlserver://localhost:1433;databaseName=dreamhome;"
-                    + "user=sa;"
-                    + "password=hanji123;"
+                    + "user=denise1;"
+                    + "password=hanji15;"
                     + "encrypt=true;trustServerCertificate=true;";
         String consulta = "SELECT * FROM propertyforrent";
         
@@ -710,8 +838,8 @@ public class PropertyForRent extends javax.swing.JFrame {
     public void actualizarTabla(String sql){
         String controlador = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
         String url = "jdbc:sqlserver://localhost:1433;databaseName=dreamhome;"
-                    + "user=sa;"
-                    + "password=hanji123;"
+                    + "user=denise1;"
+                    + "password=hanji15;"
                     + "encrypt=true;trustServerCertificate=true;";
         String consulta = sql;
         
@@ -752,6 +880,21 @@ public class PropertyForRent extends javax.swing.JFrame {
                 cajaOwner.getText().isEmpty() && cajaStaff.getText().isEmpty() && cajaBranch.getText().isEmpty()){
             actualizarTabla("SELECT * FROM propertyforrent");
         }
+    }
+    
+    public void obtenerRegistro(){
+        cajaProp.setText((String)tablaPfr.getValueAt(tablaPfr.getSelectedRow(), 0));
+        cajaStr.setText((String)tablaPfr.getValueAt(tablaPfr.getSelectedRow(), 1));
+        cajaCit.setText((String)tablaPfr.getValueAt(tablaPfr.getSelectedRow(), 2));
+        cajaPC.setText((String)tablaPfr.getValueAt(tablaPfr.getSelectedRow(), 3));
+        cajaTyp.setText((String)tablaPfr.getValueAt(tablaPfr.getSelectedRow(), 4));
+        int i = (short)tablaPfr.getValueAt(tablaPfr.getSelectedRow(), 5);
+        cajaRoo.setText(i + "");
+        int j = (int)tablaPfr.getValueAt(tablaPfr.getSelectedRow(), 6);
+        cajaRent.setText(j + "");
+        cajaOwner.setText((String)tablaPfr.getValueAt(tablaPfr.getSelectedRow(), 7));
+        cajaStaff.setText((String)tablaPfr.getValueAt(tablaPfr.getSelectedRow(), 8));
+        cajaBranch.setText((String)tablaPfr.getValueAt(tablaPfr.getSelectedRow(), 9));
     }
     /**
      * @param args the command line arguments

@@ -43,6 +43,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
         Salir = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -87,7 +88,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
         jButton3.setBackground(new java.awt.Color(210, 168, 168));
         jButton3.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jButton3.setText("Private Owner");
+        jButton3.setText("PropertyForRent");
         jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,6 +123,18 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         getContentPane().add(jLabel6);
         jLabel6.setBounds(280, 110, 260, 30);
 
+        jButton5.setBackground(new java.awt.Color(210, 168, 168));
+        jButton5.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jButton5.setText("Vista");
+        jButton5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5);
+        jButton5.setBounds(50, 230, 80, 30);
+
         Salir.setBackground(new java.awt.Color(210, 168, 168));
         Salir.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         Salir.setText("Salir");
@@ -153,9 +166,9 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        PrivateOwner po = new PrivateOwner();
+        PropertyForRent p = new PropertyForRent();
         this.setVisible(false);
-        po.setVisible(true);
+        p.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -173,6 +186,12 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_SalirActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        Vista v = new Vista();
+        this.setVisible(false);
+        v.setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,6 +234,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
