@@ -29,7 +29,7 @@ public class PropertyForRentDAO {
     
     public boolean eliminarProperty(String propertyNo){
         boolean resultado = false;
-        String sql = "delete from propertyforrent where propertyNo = \"" + propertyNo + "\"";
+        String sql = "delete from propertyforrent where propertyNo = '" + propertyNo + "';";
         resultado = conexion.ejecutarInstruccion(sql);
         return resultado;
     }

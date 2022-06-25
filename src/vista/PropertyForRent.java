@@ -4,7 +4,15 @@
  */
 package vista;
 
+import controlador.PropertyForRentDAO;
 import java.awt.Color;
+import java.awt.Component;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import modelo.PropertyForRentM;
 
 /**
  *
@@ -15,10 +23,12 @@ public class PropertyForRent extends javax.swing.JFrame {
     /**
      * Creates new form PropertyForRent
      */
+    byte op = 0;
     public PropertyForRent() {
         initComponents();
         this.getContentPane().setBackground(Color.pink);
         this.setLocationRelativeTo(null);
+        actualizarTabla();
     }
 
     /**
@@ -52,9 +62,9 @@ public class PropertyForRent extends javax.swing.JFrame {
         cajaStaff = new javax.swing.JTextField();
         cajaBranch = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        comboOp = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        comboFiltro = new javax.swing.JComboBox<>();
         btnAdd = new javax.swing.JButton();
         btnElim = new javax.swing.JButton();
         btnAct = new javax.swing.JButton();
@@ -91,27 +101,57 @@ public class PropertyForRent extends javax.swing.JFrame {
 
         jLabel12.setText("Opciones:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Añadir", "Eliminar", "Actualizar", "Consultar" }));
+        comboOp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Añadir", "Eliminar", "Actualizar", "Consultar" }));
+        comboOp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboOpActionPerformed(evt);
+            }
+        });
 
         jLabel13.setText("Filtro:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Property No", "Street", "City", "Postcode", "Type", "Rooms", "Rent", "OwnerNo", "StaffNo", "BranchNo", "Todos" }));
+        comboFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Property No", "Street", "City", "Postcode", "Type", "Rooms", "Rent", "OwnerNo", "StaffNo", "BranchNo", "Todos" }));
 
         btnAdd.setText("Añadir");
         btnAdd.setEnabled(false);
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
 
         btnElim.setText("Eliminar");
         btnElim.setEnabled(false);
+        btnElim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnElimActionPerformed(evt);
+            }
+        });
 
         btnAct.setText("Actualizar");
         btnAct.setEnabled(false);
+        btnAct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActActionPerformed(evt);
+            }
+        });
 
         btnCons.setText("Consultar");
         btnCons.setEnabled(false);
+        btnCons.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsActionPerformed(evt);
+            }
+        });
 
         btnLimp.setText("Limpiar Campos");
 
         btnReg.setText("Regresar");
+        btnReg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegActionPerformed(evt);
+            }
+        });
 
         tablaPfr.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -186,11 +226,11 @@ public class PropertyForRent extends javax.swing.JFrame {
                                                     .addGap(18, 18, 18)
                                                     .addComponent(jLabel12)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(comboOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addGap(18, 18, 18)
                                                     .addComponent(jLabel13)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(comboFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                                     .addGap(181, 181, 181)
                                                     .addComponent(btnAdd)))
@@ -222,9 +262,9 @@ public class PropertyForRent extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(jLabel12)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel13)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comboFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
@@ -279,6 +319,320 @@ public class PropertyForRent extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        PropertyForRentDAO pDAO = new PropertyForRentDAO();
+        String rooms = cajaRoo.getText();
+        String rent = cajaRent.getText();
+        if(cajaProp.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Por favor llene todos los campos");
+        }else{
+            int ro = Integer.parseInt(rooms);
+            int re = Integer.parseInt(rent);
+            PropertyForRentM p = new PropertyForRentM(cajaProp.getText(), cajaStr.getText(), cajaCit.getText(), cajaPC.getText(), cajaTyp.getText(), ro, re, cajaOwner.getText(), cajaStaff.getText(), cajaBranch.getText());
+            if(pDAO.insertarProperty(p)){
+                actualizarTabla();
+            }else{
+                actualizarTabla();
+            }
+        }
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void comboOpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboOpActionPerformed
+        if(comboOp.getSelectedIndex() == 0){
+                btnAdd.setEnabled(false);
+                btnAct.setEnabled(false);
+                btnElim.setEnabled(false);
+                btnCons.setEnabled(true);
+                btnLimp.setEnabled(false);
+                btnReg.setEnabled(true);
+            }else if(comboOp.getSelectedIndex() == 1){
+                btnAdd.setEnabled(true);
+                btnAct.setEnabled(false);
+                btnElim.setEnabled(false);
+                btnCons.setEnabled(true);
+                btnLimp.setEnabled(true);
+                btnReg.setEnabled(true);
+            }else if(comboOp.getSelectedIndex() == 2){
+                btnAdd.setEnabled(false);
+                btnAct.setEnabled(false);
+                btnElim.setEnabled(true);
+                btnCons.setEnabled(true);
+                btnLimp.setEnabled(true);
+                btnReg.setEnabled(true);
+            }else if(comboOp.getSelectedIndex() == 3){
+                btnAdd.setEnabled(false);
+                btnAct.setEnabled(true);
+                btnElim.setEnabled(false);
+                btnCons.setEnabled(true);
+                btnLimp.setEnabled(true);
+                btnReg.setEnabled(true);
+            }else if(comboOp.getSelectedIndex() == 4){
+                btnAdd.setEnabled(false);
+                btnAct.setEnabled(false);
+                btnElim.setEnabled(false);
+                btnCons.setEnabled(true);
+                btnLimp.setEnabled(true);
+                btnReg.setEnabled(true);
+                comboFiltro.setEnabled(true);
+            }
+    }//GEN-LAST:event_comboOpActionPerformed
+
+    private void btnRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegActionPerformed
+        ventanaPrincipal vp = new ventanaPrincipal();
+        this.setVisible(false);
+        vp.setVisible(true);
+    }//GEN-LAST:event_btnRegActionPerformed
+
+    private void btnElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimActionPerformed
+        PropertyForRentDAO pDAO = new PropertyForRentDAO();
+        
+        if(pDAO.eliminarProperty(cajaProp.getText())){
+            actualizarTabla();
+            reestablecer(cajaBranch, cajaCit, cajaOwner, cajaPC, cajaProp, cajaRent, cajaRoo, cajaStaff, cajaStr, cajaTyp);
+        }else{
+            actualizarTabla();
+            reestablecer(cajaBranch, cajaCit, cajaOwner, cajaPC, cajaProp, cajaRent, cajaRoo, cajaStaff, cajaStr, cajaTyp);
+        }
+    }//GEN-LAST:event_btnElimActionPerformed
+
+    private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
+        PropertyForRentDAO pDAO = new PropertyForRentDAO();
+        String rooms = cajaRoo.getText();
+        String rent = cajaRent.getText();
+        int ro = Integer.parseInt(rooms);
+        int re = Integer.parseInt(rent);
+        PropertyForRentM p = new PropertyForRentM(cajaProp.getText(), cajaStr.getText(), cajaCit.getText(), cajaPC.getText(), cajaTyp.getText(), ro, re, cajaOwner.getText(), cajaStaff.getText(), cajaBranch.getText());
+            
+        if(pDAO.modificarProperty(p)){
+            actualizarTabla();
+            reestablecer(cajaBranch, cajaCit, cajaOwner, cajaPC, cajaProp, cajaRent, cajaRoo, cajaStaff, cajaStr, cajaTyp);
+        }else{
+            actualizarTabla();
+            reestablecer(cajaBranch, cajaCit, cajaOwner, cajaPC, cajaProp, cajaRent, cajaRoo, cajaStaff, cajaStr, cajaTyp);
+        }
+    }//GEN-LAST:event_btnActActionPerformed
+
+    private void btnConsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsActionPerformed
+        if(comboOp.getSelectedIndex() == 0){
+            actualizarTabla2();
+        }else if(comboOp.getSelectedIndex() == 1){
+            actualizarTabla2();
+        }else if(comboOp.getSelectedIndex() == 2){
+            actualizarTabla2();
+        }else if(comboOp.getSelectedIndex() == 3){
+            actualizarTabla2();
+        }else if(comboOp.getSelectedIndex() == 4){
+            PropertyForRentDAO pDAO = new PropertyForRentDAO();
+            
+            if(comboFiltro.getSelectedIndex() == 1){
+                if(cajaProp.getText().isEmpty()){
+                    op = 0;
+                }else{
+                    op = 1;
+                }
+            }else if(comboFiltro.getSelectedIndex() == 2){
+                if(cajaStr.getText().isEmpty()){
+                    op = 0;
+                }else{
+                    op = 2;
+                }
+            }else if(comboFiltro.getSelectedIndex() == 3){
+                if(cajaCit.getText().isEmpty()){
+                    op = 0;
+                }else{
+                    op = 3;
+                }
+            }else if(comboFiltro.getSelectedIndex() == 4){
+                if(cajaPC.getText().isEmpty()){
+                    op = 0;
+                }else{
+                    op = 4;
+                }
+            }else if(comboFiltro.getSelectedIndex() == 5){
+                if(cajaTyp.getText().isEmpty()){
+                    op = 0;
+                }else{
+                    op = 5;
+                }
+            }else if(comboFiltro.getSelectedIndex() == 6){
+                if(cajaRoo.getText().isEmpty()){
+                    op = 0;
+                }else{
+                    op = 6;
+                }
+            }else if(comboFiltro.getSelectedIndex() == 7){
+                if(cajaRent.getText().isEmpty()){
+                    op = 0;
+                }else{
+                    op = 7;
+                }
+            }else if(comboFiltro.getSelectedIndex() == 8){
+                if(cajaOwner.getText().isEmpty()){
+                    op = 0;
+                }else{
+                    op = 8;
+                }
+            }else if(comboFiltro.getSelectedIndex() == 9){
+                if(cajaStaff.getText().isEmpty()){
+                    op = 0;
+                }else{
+                    op = 9;
+                }
+            }else if(comboFiltro.getSelectedIndex() == 10){
+                if(cajaBranch.getText().isEmpty()){
+                    op = 0;
+                }else{
+                    op = 10;
+                }
+            }else if(comboFiltro.getSelectedIndex() == 0){
+                op = 0;
+            }else if(comboFiltro.getSelectedIndex() == 11){
+                op = 11;
+            }
+            actualizarTabla3();
+        }
+    }//GEN-LAST:event_btnConsActionPerformed
+    public void reestablecer(Component...componentes){
+        for(Component Component : componentes){
+            if(Component instanceof JTextField){
+                ((JTextField)Component).setText("");
+            }
+        }
+    }
+    
+    public void actualizarTabla(){
+        String controlador = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+        String url = "jdbc:sqlserver://localhost:1433;databaseName=dreamhome;"
+                    + "user=sa;"
+                    + "password=hanji123;"
+                    + "encrypt=true;trustServerCertificate=true;";
+        String consulta = "SELECT * FROM propertyforrent";
+        
+        ResultSetTableModel modeloDatos = null;
+        try{
+            modeloDatos = new ResultSetTableModel(controlador, url, consulta);
+        }catch(SQLException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(ClassNotFoundException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tablaPfr.setModel(modeloDatos);
+    }
+    
+    public void actualizarTabla2(){
+        String controlador = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+        String url = "jdbc:sqlserver://localhost:1433;databaseName=dreamhome;"
+                    + "user=sa;"
+                    + "password=hanji123;"
+                    + "encrypt=true;trustServerCertificate=true;";
+        String consulta = "SELECT * FROM propertyforrent WHERE propertyNo = '" + cajaProp.getText() + "'";
+        
+        ResultSetTableModel modeloDatos = null;
+        try{
+            modeloDatos = new ResultSetTableModel(controlador, url, consulta);
+        }catch(SQLException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(ClassNotFoundException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tablaPfr.setModel(modeloDatos);
+    }
+    
+    public void actualizarTabla3(){
+        String controlador = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+        String url = "jdbc:sqlserver://localhost:1433;databaseName=dreamhome;"
+                    + "user=sa;"
+                    + "password=hanji123;"
+                    + "encrypt=true;trustServerCertificate=true;";
+        String consulta = "SELECT * FROM propertyforrent";
+        
+        ResultSetTableModel modeloDatos = null;
+        
+        if(op == 1){
+            consulta = "select * from propertyforrent where propertyNo = '" + cajaProp.getText() + "';";
+        }else if(op == 2){
+            consulta = "select * from propertyforrent where street = '" + cajaStr.getText() + "';";
+        }else if(op == 3){
+            consulta = "select * from propertyforrent where city = '" + cajaCit.getText() + "';";
+        }else if(op == 4){
+            consulta = "select * from propertyforrent where postcode = '" + cajaPC.getText() + "';";
+        }else if(op == 5){
+            consulta = "select * from propertyforrent where type = '" + cajaTyp.getText() + "';";
+        }else if(op == 6){
+            int room = -1;
+            if(cajaRoo.getText() != ""){
+                room = Integer.parseInt(cajaRoo.getText());
+            }
+            consulta = "select * from propertyforrent where rooms = " + room + ";";
+        }else if(op == 7){
+            int rent = -1;
+            if(cajaRent.getText() != ""){
+                rent = Integer.parseInt(cajaRent.getText());
+            }
+            consulta = "select * from propertyforrent where rent = " + rent + ";";
+        }else if(op == 8){
+            consulta = "select * from propertyforrent where ownerNo = '" + cajaOwner.getText() + "';";
+        }else if(op == 9){
+            consulta = "select * from propertyforrent where staffNo = '" + cajaStaff.getText() + "';";
+        }else if(op == 10){
+            consulta = "select * from propertyforrent where branchNo = '" + cajaBranch.getText() + "';";
+        }
+        try{
+            modeloDatos = new ResultSetTableModel(controlador, url, consulta);
+        }catch(SQLException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(ClassNotFoundException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tablaPfr.setModel(modeloDatos);
+    }
+    
+    public void actualizarTabla(String sql){
+        String controlador = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+        String url = "jdbc:sqlserver://localhost:1433;databaseName=dreamhome;"
+                    + "user=sa;"
+                    + "password=hanji123;"
+                    + "encrypt=true;trustServerCertificate=true;";
+        String consulta = sql;
+        
+        ResultSetTableModel modeloDatos = null;
+        try{
+            modeloDatos = new ResultSetTableModel(controlador, url, consulta);
+        }catch(SQLException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(ClassNotFoundException ex){
+            Logger.getLogger(Sucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tablaPfr.setModel(modeloDatos);
+    }
+    
+    public void buscarPorCampos(){
+        if(!cajaProp.getText().isEmpty()){
+            actualizarTabla("SELECT * FROM propertyforrent WHERE propertyNo LIKE '" + cajaProp.getText() + "%'");
+        }else if(!cajaStr.getText().isEmpty()){
+            actualizarTabla("SELECT * FROM propertyforrent WHERE street LIKE '" + cajaStr.getText() + "%'");
+        }else if(!cajaCit.getText().isEmpty()){
+            actualizarTabla("SELECT * FROM propertyforrent WHERE city LIKE '" + cajaCit.getText() + "%'");
+        }else if(!cajaPC.getText().isEmpty()){
+            actualizarTabla("SELECT * FROM propertyforrent WHERE postcode LIKE '" + cajaPC.getText() + "%'");
+        }else if(!cajaTyp.getText().isEmpty()){
+            actualizarTabla("SELECT * FROM propertyforrent WHERE type LIKE '" + cajaTyp.getText() + "%'");
+        }else if(!cajaRoo.getText().isEmpty()){
+            actualizarTabla("SELECT * FROM propertyforrent WHERE + CAST(rooms as Varchar(10)) LIKE '" + cajaRoo.getText() + "%'");
+        }else if(!cajaRent.getText().isEmpty()){
+            actualizarTabla("SELECT * FROM propertyforrent WHERE + CAST(rent as Varchar(20)) LIKE '" + cajaRent.getText() + "%'");
+        }else if(!cajaOwner.getText().isEmpty()){
+            actualizarTabla("SELECT * FROM propertyforrent WHERE ownerNo LIKE '" + cajaOwner.getText() + "%'");
+        }else if(!cajaStaff.getText().isEmpty()){
+            actualizarTabla("SELECT * FROM propertyforrent WHERE staffNo LIKE '" + cajaStaff.getText() + "%'");
+        }else if(!cajaBranch.getText().isEmpty()){
+            actualizarTabla("SELECT * FROM propertyforrent WHERE branchNo LIKE '" + cajaBranch.getText() + "%'");
+        }else if(cajaProp.getText().isEmpty() && cajaStr.getText().isEmpty() && cajaCit.getText().isEmpty() &&
+                cajaPC.getText().isEmpty() && cajaTyp.getText().isEmpty() && cajaRoo.getText().isEmpty() && cajaRent.getText().isEmpty() &&
+                cajaOwner.getText().isEmpty() && cajaStaff.getText().isEmpty() && cajaBranch.getText().isEmpty()){
+            actualizarTabla("SELECT * FROM propertyforrent");
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -331,8 +685,8 @@ public class PropertyForRent extends javax.swing.JFrame {
     private javax.swing.JTextField cajaStaff;
     private javax.swing.JTextField cajaStr;
     private javax.swing.JTextField cajaTyp;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> comboFiltro;
+    private javax.swing.JComboBox<String> comboOp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

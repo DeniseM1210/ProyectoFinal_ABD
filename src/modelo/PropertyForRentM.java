@@ -14,7 +14,7 @@ public class PropertyForRentM {
     private String city;
     private String postcode;
     private String type;
-    private byte rooms;
+    private int rooms;
     private int rent;
     private String ownerNo;
     private String staffNo;
@@ -23,7 +23,7 @@ public class PropertyForRentM {
     public PropertyForRentM() {
     }
 
-    public PropertyForRentM(String propertyNo, String street, String city, String postcode, String type, byte rooms, int rent, String ownerNo, String staffNo, String branchNo) {
+    public PropertyForRentM(String propertyNo, String street, String city, String postcode, String type, int rooms, int rent, String ownerNo, String staffNo, String branchNo) {
         this.propertyNo = propertyNo;
         this.street = street;
         this.city = city;
@@ -76,11 +76,11 @@ public class PropertyForRentM {
         this.type = type;
     }
 
-    public byte getRooms() {
+    public int getRooms() {
         return rooms;
     }
 
-    public void setRooms(byte rooms) {
+    public void setRooms(int rooms) {
         this.rooms = rooms;
     }
 

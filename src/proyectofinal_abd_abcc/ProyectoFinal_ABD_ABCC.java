@@ -6,6 +6,7 @@ package proyectofinal_abd_abcc;
 
 import vista.Client;
 import vista.Login;
+import vista.PropertyForRent;
 import vista.Sucursal;
 import vista.ventanaPrincipal;
 
@@ -21,7 +22,7 @@ public class ProyectoFinal_ABD_ABCC {
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                new PropertyForRent().setVisible(true);
             }
         });
     }
