@@ -133,7 +133,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton5);
-        jButton5.setBounds(50, 230, 80, 30);
+        jButton5.setBounds(430, 230, 90, 30);
 
         Salir.setBackground(new java.awt.Color(210, 168, 168));
         Salir.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N

@@ -79,11 +79,11 @@ public class Sucursal extends javax.swing.JFrame {
 
         jLabel2.setText("Branch No.:");
 
-        jLabel3.setText("Calle:");
+        jLabel3.setText("Street:");
 
-        jLabel4.setText("Ciudad:");
+        jLabel4.setText("City:");
 
-        jLabel5.setText("Código Postal:");
+        jLabel5.setText("Postcode:");
 
         cajaBranch.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -237,7 +237,7 @@ public class Sucursal extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cajaCP, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(cajaCP)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()

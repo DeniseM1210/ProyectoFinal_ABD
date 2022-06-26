@@ -56,7 +56,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="cajaCP" min="-2" pref="118" max="-2" attributes="0"/>
+                              <Component id="cajaCP" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -169,17 +169,17 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Calle:"/>
+        <Property name="text" type="java.lang.String" value="Street:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ciudad:"/>
+        <Property name="text" type="java.lang.String" value="City:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="C&#xf3;digo Postal:"/>
+        <Property name="text" type="java.lang.String" value="Postcode:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="cajaBranch">
