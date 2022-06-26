@@ -431,7 +431,7 @@ public class PropertyForRent extends javax.swing.JFrame {
             PropertyForRentM p = new PropertyForRentM(cajaProp.getText(), cajaStr.getText(), cajaCit.getText(), cajaPC.getText(), cajaTyp.getText(), ro, re, cajaOwner.getText(), cajaStaff.getText(), cajaBranch.getText());
             if(pDAO.insertarProperty(p)){
                 actualizarTabla();
-            }else if(pDAO.insertarProperty(p) == false){
+            }else{
                 JOptionPane.showMessageDialog(null, "Error! Campo inexistente");
                 actualizarTabla();
             }
@@ -595,61 +595,61 @@ public class PropertyForRent extends javax.swing.JFrame {
     }//GEN-LAST:event_btnConsActionPerformed
 
     private void cajaPropKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaPropKeyReleased
-        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3){
             buscarPorCampos();
         }
     }//GEN-LAST:event_cajaPropKeyReleased
 
     private void cajaStrKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaStrKeyReleased
-        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3){
             buscarPorCampos();
         }
     }//GEN-LAST:event_cajaStrKeyReleased
 
     private void cajaCitKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaCitKeyReleased
-        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3){
             buscarPorCampos();
         }
     }//GEN-LAST:event_cajaCitKeyReleased
 
     private void cajaPCKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaPCKeyReleased
-        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3){
             buscarPorCampos();
         }
     }//GEN-LAST:event_cajaPCKeyReleased
 
     private void cajaTypKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaTypKeyReleased
-        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3){
             buscarPorCampos();
         }
     }//GEN-LAST:event_cajaTypKeyReleased
 
     private void cajaRooKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaRooKeyReleased
-        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3){
             buscarPorCampos();
         }
     }//GEN-LAST:event_cajaRooKeyReleased
 
     private void cajaRentKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaRentKeyReleased
-        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3){
             buscarPorCampos();
         }
     }//GEN-LAST:event_cajaRentKeyReleased
 
     private void cajaOwnerKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaOwnerKeyReleased
-        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3){
             buscarPorCampos();
         }
     }//GEN-LAST:event_cajaOwnerKeyReleased
 
     private void cajaStaffKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaStaffKeyReleased
-        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3){
             buscarPorCampos();
         }
     }//GEN-LAST:event_cajaStaffKeyReleased
 
     private void cajaBranchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaBranchKeyReleased
-        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3){
             buscarPorCampos();
         }
     }//GEN-LAST:event_cajaBranchKeyReleased

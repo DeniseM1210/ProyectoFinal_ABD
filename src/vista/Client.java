@@ -638,43 +638,43 @@ public class Client extends javax.swing.JFrame {
     }//GEN-LAST:event_cajaPrefKeyTyped
 
     private void cajafNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajafNameKeyReleased
-        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3){
             buscarPorCampos();
         }
     }//GEN-LAST:event_cajafNameKeyReleased
 
     private void cajaClientNoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaClientNoKeyReleased
-        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3){
             buscarPorCampos();
         }
     }//GEN-LAST:event_cajaClientNoKeyReleased
 
     private void cajalNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajalNameKeyReleased
-        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3){
             buscarPorCampos();
         }
     }//GEN-LAST:event_cajalNameKeyReleased
 
     private void cajaTelNoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaTelNoKeyReleased
-        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3){
             buscarPorCampos();
         }
     }//GEN-LAST:event_cajaTelNoKeyReleased
 
     private void cajaPrefKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaPrefKeyReleased
-        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3){
             buscarPorCampos();
         }
     }//GEN-LAST:event_cajaPrefKeyReleased
 
     private void cajaMaxRKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaMaxRKeyReleased
-        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3){
             buscarPorCampos();
         }
     }//GEN-LAST:event_cajaMaxRKeyReleased
 
     private void cajaEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaEmailKeyReleased
-        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3){
             buscarPorCampos();
         }
     }//GEN-LAST:event_cajaEmailKeyReleased

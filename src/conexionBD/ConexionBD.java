@@ -9,7 +9,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Savepoint;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -17,30 +20,47 @@ import java.sql.Statement;
  */
 public class ConexionBD {
     private Statement stn = null;
-    private Connection conexionBD = null;
+    private static Connection conexionBD;
     private ResultSet rs;
+    private static Savepoint sp = null;
 
-    public ConexionBD(){
-        try{
-            String url = "jdbc:sqlserver://localhost:1433;databaseName=dreamhome;"
+    private ConexionBD(){
+        String url = "jdbc:sqlserver://localhost:1433;databaseName=dreamhome;"
                     + "user=denise1;"
                     + "password=hanji15;"
                     + "encrypt=true;trustServerCertificate=true;";
-            
+        String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+        try{
+            /*String url = "jdbc:sqlserver://localhost:1433;databaseName=dreamhome;"
+                    + "user=denise1;"
+                    + "password=hanji15;"
+                    + "encrypt=true;trustServerCertificate=true;";*/
+            Class.forName(driver);
             conexionBD = DriverManager.getConnection(url);
+            
+            conexionBD.setAutoCommit(false);
+            sp = conexionBD.setSavepoint("Inicio");
+            
             System.out.println("Conexión Establecida!!");
-        }catch(SQLException ex){
+        }catch(SQLException | ClassNotFoundException ex ){
             System.out.println("Error de conexión!!");
         }
     }
     
+    public static Connection getConnection(){
+        if(conexionBD == null){
+            new ConexionBD();
+        }
+        return conexionBD;
+    }
+    
     public void cerrarConexionBD(){
-        try{
-            stn.close();
-            conexionBD.close();
-        }catch(SQLException ex){
-            System.out.println("Error al cerrar la conexión");
-            ex.printStackTrace();
+        if(conexionBD != null){
+            try {
+                conexionBD.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(ConexionBD.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         
     }

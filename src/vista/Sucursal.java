@@ -517,25 +517,25 @@ public class Sucursal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHistActionPerformed
 
     private void cajaBranchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaBranchKeyReleased
-        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3){
             buscarPorCampos();
         }
     }//GEN-LAST:event_cajaBranchKeyReleased
 
     private void cajaCalleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaCalleKeyReleased
-        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3){
             buscarPorCampos();
         }
     }//GEN-LAST:event_cajaCalleKeyReleased
 
     private void cajaCiudKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaCiudKeyReleased
-        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3){
             buscarPorCampos();
         }
     }//GEN-LAST:event_cajaCiudKeyReleased
 
     private void cajaCPKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaCPKeyReleased
-        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3 || comboOp.getSelectedIndex() == 4){
+        if(comboOp.getSelectedIndex() == 2 || comboOp.getSelectedIndex() == 3){
             buscarPorCampos();
         }
     }//GEN-LAST:event_cajaCPKeyReleased
